@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- <meta http-equiv="refresh" content="16;url=URL" /> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Flyairbooking | Book Flights Today</title>
+		<link rel="icon" style="x-icon" href="favicon.png">
+		<!-- Jquery -->
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<!-- Normalize CSS -->
+		<link rel="stylesheet" href="css/normalize.min.css">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/forms.css">
+		<!-- datejs -->
+		<script src="js/date.min.js"></script>
+	</head>
+	<body>
+		<div class="section main">
+			<div class="cw">
+				<div class="topbar c1 c-util" style="    border-color: #004aad !important;
+    background: white;
+    border: solid;">
+					<div><img src="logo.png" class="tb-logo"></div>
+					<div>
+						<a href="tel:+18557382852" class="btn-s tb-cta animated infinite pulse">Call now</a>
+					</div>
+				</div>
+				<div class="next-hide">
+					<div class="main-title c2 c-util">
+						Why stress about flights
+					</div>
+					<div class="main-sh c1 c-util">when customer service can do it for you?</div>
+				</div>
+				<div class="panel style1">
+					<div class="q-list">
+						<div class="q-item">
+							<div class="panel-h">Tell us what you're looking for:</div>
+							<div class="q-btn-grid c-combo">
+								<a href="javascript:void(0);" class="stylish-btn"><span>New Flight</span></a>
+								<a href="javascript:void(0);" class="stylish-btn"><span>Date Change</span></a>
+								<a href="javascript:void(0);" class="stylish-btn"><span>Cancellation</span></a>
+							</div>
+						</div>
+						<div class="q-item">
+							<div class="panel-h">Do you have a preferred airline?</div>
+							<div class="q-btn-grid c-combo">
+								<a href="javascript:void(0);" class="stylish-btn"><span>American Airlines</span></a>
+								<a href="javascript:void(0);" class="stylish-btn"><span>Delta Airlines</span></a>
+								<a href="javascript:void(0);" class="stylish-btn"><span>United Airlines</span></a>
+							</div>
+						</div>
+						<div class="q-item">
+
+							<div class="panel-h">You're traveling for</div>
+							<div class="q-btn-grid c-combo">
+								<a href="javascript:void(0);" class="stylish-btn"><span>Leisure</span></a>
+								<a href="javascript:void(0);" class="stylish-btn"><span>Business</span></a>
+								<a href="javascript:void(0);" class="stylish-btn"><span>Other</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel style1 next-panel">
+					<div class="main-title c2 c-util">
+					An agent is ready for you
+					</div>
+					<div class="main-sh c1 c-util">click the button below to initiate the call!</div>
+					<a href="tel:+18557382852" class="btn-s c2 btn-wt c-util hover-dark center panel-cta"><span>Get Started</span></a>
+				</div>
+				<div class="panel style1 alter">
+					<div class="panel-h">Get 1st rate service for stress-free travel</div>
+					<div class="p">We partner with America's most respected airlines to provide a flexible and enjoyable travel management experience.<br/>
+					By speaking to a customer service agent, you receive the best possible service while booking or changing your flight.</div><br/><br/>
+
+					<a href="tel:+18557382852" class="btn-s c2 btn-wt c-util hover-dark center panel-cta  animated infinite pulse">Call Now<br/><span>+1 (855) 738- 2852</span></a>
+				</div>
+			</div>
+
+		</div>
+		<div class="section footer c1 c-util">
+			<div class="cw">
+				<div class="p">Disclaimer:</div>
+				<div class="p">Flyairbooking.com is a marketing entity whose purpose is to deliver valuable offers to consumers on behalf of our partner businesses. We are not an airline carrier or a travel agency.</div>
+				<div class="p">As such, Flyairbooking.com claims no accountability for the actions of our partners once you leave our site. Read more in the Terms of Use below.</div>
+				<div class="footer-h">Flyairbooking &copy 2023</div>
+				<a href="https://Flyairbooking.com/privacy.html" class="footer-links">Privacy Policy</a> | <a href="https://Flyairbooking.com/tandc.html" class="footer-links">Terms of Use</a> | <a href="https://unsuball.vip/unsubscribe/1" class="footer-links">Do Not Sell My Info</a>
+			</div>
+		</div>
+		<script>
+
+
+			$(function(){
+
+			});
+
+			$(document).on("click",".q-btn-grid a",function(){
+
+				let question = $(this).closest(".q-item");
+
+				if(question.is(":last-child")){
+					let target = $(this).closest(".panel");
+					target.addClass("transitioning");
+
+					setTimeout(function(){
+						target.closest(".panel").remove();
+						$(".next-panel").addClass("show");
+						$(".next-hide").remove();
+					},2000);
+				}else{
+
+					$(this).closest(".q-list").find("> div:visible").first().hide().next().fadeIn();
+				}
+
+
+			});
+
+		</script>
+	</body>
+</html>

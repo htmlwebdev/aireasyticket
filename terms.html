@@ -45,13 +45,7 @@
 .tb-logo {
   margin: 0 10px;
 }
-.q-btn-grid{
 
-gap:.5em;
-	grid-template-columns: 1fr;
-
-	padding-inline:0;
-}
 @media screen and (max-width: 600px) {
   .topbar {
     display: grid;
@@ -103,35 +97,36 @@ gap:.5em;
 					</div>
 					<div class="main-sh c1 c-util">when customer service can do it for you?</div>
 				</div>
-				<div class="panel style1">
-					<div class="q-list">
-						<div class="q-item">
-							<div class="panel-h">Tell us what you're looking for:</div>
-							<div class="q-btn-grid c-combo">
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>New Flight</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Date Change</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Cancellation</span></a>
-							</div>
-						</div>
-						<div class="q-item">
-							<div class="panel-h">Do you have a preferred airline?</div>
-							<div class="q-btn-grid c-combo">
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>American Airlines</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Delta Airlines</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>United Airlines</span></a>
-							</div>
-						</div>
-						<div class="q-item">
-
-							<div class="panel-h">You're traveling for</div>
-							<div class="q-btn-grid c-combo">
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Leisure</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Business</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Other</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
+                <div class="panel style1">
+                    <div class="panel-h">Terms of Service</div>
+                    <div class="p">
+                      By accessing or using the Aireasyticket website and services, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree with any part of these terms, please do not use our services.
+                    </div><br/>
+                    <div class="p">
+                      <strong>Service Description:</strong> Aireasyticket is a third-party provider of airline ticket booking, cancellation, and date change services. We partner with various airlines to facilitate your travel arrangements, but we do not operate or control any airline.
+                    </div><br/>
+                    <div class="p">
+                      <strong>Booking and Payments:</strong> When you make a booking through our website or customer service representatives, you agree to provide accurate and complete information. You are responsible for ensuring that you have the necessary travel documents, such as passports and visas, and for complying with all applicable laws and regulations. Payments for our services are processed by third-party payment providers, and we are not responsible for any issues related to the payment process.
+                    </div><br/>
+                    <div class="p">
+                      <strong>Cancellations and Refunds:</strong> The cancellation and refund policies may vary depending on the airline and the specific ticket you have booked. We will assist you in processing cancellations and refunds, but we cannot guarantee the outcome or the timeframe for receiving any refunds. Please review the specific terms and conditions of your ticket before making a booking.
+                    </div><br/>
+                    <div class="p">
+                      <strong>Limitation of Liability:</strong> Aireasyticket is not liable for any errors, omissions, or miscommunications related to airline ticket bookings, cancellations, or date changes. We are not responsible for any delays, cancellations, or other issues that may arise from the operation of the airlines. Our liability for any claims arising from or related to our services is limited to the amount paid by the customer for those services.
+                    </div><br/>
+                    <div class="p">
+                      <strong>Intellectual Property:</strong> All content on the Aireasyticket website, including logos, text, graphics, and software, is the property of Aireasyticket and is protected by intellectual property laws. You may not use, reproduce, or distribute any content from our website without our prior written consent.
+                    </div><br/>
+                    <div class="p">
+                      <strong>Modification of Terms:</strong> We reserve the right to modify or update these Terms of Service at any time without prior notice. Any changes will be effective immediately upon posting on our website. It is your responsibility to review these terms periodically for any updates.
+                    </div><br/>
+                    <div class="p">
+                      <strong>Governing Law:</strong> These Terms of Service shall be governed by and construed in accordance with the laws of United States. Any legal action or proceeding relating to these terms shall be brought exclusively in the courts of United States.
+                    </div><br/>
+                    <div class="p">
+                      If you have any questions or concerns about our Terms of Service, please contact us at <a href="mailto:info@aireasyticket.com">info@aireasyticket.com</a>.
+                    </div><br/>
+                </div>
 				<div class="panel style1 next-panel">
 					<div class="main-title c2 c-util">
 					An agent is ready for you
@@ -164,6 +159,7 @@ gap:.5em;
 		   			$('#num_href1').attr('href', `tel:+${number}`);
 		   			$('#num_href2').attr('href', `tel:+${number}`);
 		   			$('#num_href3').attr('href', `tel:+${number}`);
+		   			$('#num_href4').attr('href', `tel:+${number}`);
 
 		   			$("#num_clear").html(parse_number(`${number}`));
 			  }
@@ -180,7 +176,7 @@ gap:.5em;
 				<div class="p">Our company is a third-party provider of airline ticket booking, cancellation, and date change services. We are not affiliated with any particular airline, and we do not control or operate any airline. We provide our services solely as a convenience to our customers, and we do not guarantee the availability of any particular flight or the accuracy of any flight information. Any prices or availability displayed on our website or through our customer service representatives are subject to change without notice.</div>
 				<div class="p">We are not responsible for any errors, omissions, or miscommunications related to airline ticket bookings, cancellations, or date changes. Customers are solely responsible for ensuring that they have the correct travel documents, including passports and visas, and for complying with all applicable laws and regulations. Our liability for any claims arising from or related to our services is limited to the amount paid by the customer for those services. By using our services, you acknowledge and agree to these terms and conditions</div>
 				<div class="footer-h">Aireasyticket &copy 2023</div>
-				<a href="privacy.html" class="footer-links">Privacy Policy</a> | <a href="/terms.html" class="footer-links">Terms of Use</a> 
+				<a href="privacy.html" class="footer-links">Privacy Policy</a> | <a href="/terms.html" class="footer-links">Terms of Use</a>
 			</div>
 		</div>
 		<script>

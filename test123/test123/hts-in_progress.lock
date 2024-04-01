@@ -1,0 +1,7 @@
+Mirror in progress since Tue, 30 Jan 2024 22:49:15 .. please wait!
+winhttrack https://html.hixstudio.net/diego-prev/diego/index.html -W -O "test123/test123" -%v 
+To pause the engine: create an empty file named 'hts-stop.lock'
+PID=22795
+UID=501
+GID=501
+START=1706654955

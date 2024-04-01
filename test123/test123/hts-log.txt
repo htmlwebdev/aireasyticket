@@ -1,0 +1,8 @@
+HTTrack3.49-2 launched on Tue, 30 Jan 2024 22:49:15 at https://html.hixstudio.net/diego-prev/diego/index.html
+(winhttrack https://html.hixstudio.net/diego-prev/diego/index.html -W -O "test123/test123" -%v )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+

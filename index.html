@@ -1,157 +1,748 @@
 <!DOCTYPE html>
-<html>
-	
-<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<!-- <meta http-equiv="refresh" content="16;url=URL" /> -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Aireasyticket | Book Flights Today</title>
-		<link rel="icon" style="x-icon" href="favicon.png">
-		<!-- Jquery -->
-		<script src="js/jquery-3.6.1.min.js"></script>
+<html lang="en">
+   <head>
+      <!-- Title -->
+      <title>Book Flights at Low Fares | AirEasyTicket - Flight Booking Made Easy</title>
+      <!-- Required Meta Tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charSet="utf-8" />
+      <meta property="og:image:width" content="500" />
+      <meta property="og:image:height" content="500" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta content="en" http-equiv="content-language" />
+      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+      <meta content="yes" name="apple-mobile-web-app-capable" />
+      <meta content="true" name="HandheldFriendly" />
+      <meta content="width" name="MobileOptimized" />
+      <meta property="og:type" content="website" />
+      <meta name="robots" content="index, follow" />
+      <meta name="description" content="Book flights at low fares with AirEasyTicket. We offer a user-friendly platform for easy flight bookings to destinations worldwide." />
+      <meta name="keywords" content="AirEasyTicket, flight booking, low fares, easy booking, worldwide destinations" />
+      <meta property="og:title" content="Book Flights at Low Fares | AirEasyTicket" />
+      <meta property="og:url" content="https://aireasyticket.com" />
+      <meta property="og:description" content="Book flights at low fares with AirEasyTicket. We offer a user-friendly platform for easy flight bookings to destinations worldwide." />
+      <meta property="twitter:url" content="https://aireasyticket.com">
+      <meta property="twitter:title" content="Book Flights at Low Fares | AirEasyTicket" />
+      <meta property="twitter:description" content="Book flights at low fares with AirEasyTicket. We offer a user-friendly platform for easy flight bookings to destinations worldwide."/>
+      <meta property="twitter:image" content="logo-circle.png" />
+      <meta property="og:image" content="logo-circle.png" />
+      <!-- Favicon -->
+      <link rel="icon" type="image/png" href="logo-circle.png">
+      <link rel="shortcut icon" href="logo-circle.png" />
+      <link rel="apple-touch-icon" href="logo-circle.png" />
+      <link rel="apple-touch-icon-precomposed" href="logo-circle.png">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+      <!-- CSS Implementing Plugins -->
+      <link rel="stylesheet" href="assets/vendor/font-awesome/css/fontawesome-all.min.css">
+      <link rel="stylesheet" href="assets/css/font-mytravel.css">
+      <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css">
+      <link rel="stylesheet" href="assets/vendor/hs-megamenu/src/hs.megamenu.css">
+      <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+      <link rel="stylesheet" href="assets/vendor/flatpickr/dist/flatpickr.min.css">
+      <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+      <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
+      <link rel="stylesheet" href="assets/vendor/dzsparallaxer/dzsparallaxer.css">
+      <!-- CSS MyTravel Template -->
+      <link rel="stylesheet" href="assets/css/theme.css">
+      <style>
 
-		<!-- Normalize CSS -->
-		<link rel="stylesheet" href="css/normalize.min.css">
-		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/animate.css">
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="css/forms.css">
-		<!-- datejs -->
-		<script src="js/date.min.js"></script>
-		<script src=http://b-js.ringba.com/CA901e7eb8ca9b4570b18e9b7bfa19f4f0 async></script>
-	</head>
-	<body>
-		<div class="section main">
-			<div class="cw">
-				<div class="topbar c1 c-util" style="    border-color: #004aad !important;
-    background: white;
-    border: solid;border-radius: 20px;">
-					<div>
-						<img src="logo.png" class="tb-logo" style="float:left;">
-						<img src="american_logo.png" class="tb-logo" style="float:left;">
-						<img src="delta_logo.png" class="tb-logo" style="float:left;">
-						<img src="united_logo.png" class="tb-logo" style="float:left;">
+.u-datepicker .flatpickr-day.today {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: inherit !important;
+}
 
-					</div>
-					<div>
-						<a href="tel:+" class="btn-s tb-cta animated infinite pulse" id='num_href1'>Call now</a>
-					</div>
-				</div>
-				<div class="next-hide">
-					<div class="main-title c2 c-util">
-						Why stress about flights
-					</div>
-					<div class="main-sh c1 c-util">when customer service can do it for you?</div>
-				</div>
-				<div class="panel style1">
-					<div class="q-list">
-						<div class="q-item">
-							<div class="panel-h">Tell us what you're looking for:</div>
-							<div class="q-btn-grid c-combo">
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>New Flight Booking</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Flight Date Change</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Flight Cancellation</span></a>
-							</div>
-						</div>
-						<div class="q-item">
-							<div class="panel-h">Do you have a preferred airline?</div>
-							<div class="q-btn-grid c-combo">
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>American Airlines</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Delta Airlines</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>United Airlines</span></a>
-							</div>
-						</div>
-						<div class="q-item">
+      </style>
+   </head>
+   <body>
+      <!-- ========== HEADER ========== -->
+      <header id="header" class="u-header u-header--white-nav-links-xl u-header--bg-violet-xl u-header--static-xl u-header--show-hide-xl" data-header-fix-moment="500" data-header-fix-effect="slide">
+         <div class="u-header__section u-header__shadow-on-show-hide py-4 py-xl-0">
+            <div id="logoAndNav" class="container-fluid py-xl-3">
+               <!-- Nav -->
+               <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space">
+                  <!-- Logo -->
+                  <a class="navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-white" href="index.html" aria-label="AirEasyTicket">
+                  <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
+                  <span class="u-header__navbar-brand-text">AirEasyTicket</span>
+                  </a>
+                  <!-- End Logo -->
+                  <!-- Handheld Logo -->
+                  <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-collapsed" href="index.html" aria-label="AirEasyTicket">
+                  <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
+                  <span class="u-header__navbar-brand-text">AirEasyTicket</span>
+                  </a>
+                  <!-- End Handheld Logo -->
+                  <!-- Scroll Logo -->
+                  <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-on-scroll" href="index.html" aria-label="AirEasyTicket">
+                  <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
+                  <span class="u-header__navbar-brand-text">AirEasyTicket</span>
+                  </a>
+                  <!-- End Scroll Logo -->
+                  <!-- Responsive Toggle Button -->
+                  <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--primary order-2 ml-3" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+                  <span id="hamburgerTrigger" class="u-hamburger__box">
+                  <span class="u-hamburger__inner"></span>
+                  </span>
+                  </button>
+                  <!-- End Responsive Toggle Button -->
+                  <!-- Navigation -->
+                  <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative">
+                     <ul class="navbar-nav u-header__navbar-nav">
+                        <!-- Home -->
+                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="index.html" aria-expanded="false">Home</a>
+                        </li>
+                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="about.html" aria-haspopup="true" aria-expanded="false">About Us</a>
+                        </li>
+                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="faq.html" aria-haspopup="true" aria-expanded="false">FAQs</a>
+                        </li>
+                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="contact.html" aria-haspopup="true" aria-expanded="false">Contact</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- End Navigation -->
+               </nav>
+               <!-- End Nav -->
+            </div>
+         </div>
+      </header>
+      <!-- ========== End HEADER ========== -->
+      <!-- ========== MAIN CONTENT ========== -->
+      <main id="content">
+         <!-- ========== HERO ========== -->
+         <div class="hero-block hero-v8 bg-img-hero-bottom text-center gradient-overlay-half-bg-violet-light z-index-2" style="background-image: url(assets/img/1920x650/img1.jpg);">
+            <div class="container space-2 space-top-lg-3 space-top-xl-6">
+               <div class="row justify-content-md-center pb-4">
+                  <!-- Info -->
+                  <div class="pb-lg-8 pb-xl-11 pb-3">
+                     <h1 class="font-size-60 font-size-xs-30 text-white font-weight-bold">Discover the World, One Flight at a Time</h1>
+                  </div>
+                  <!-- End Info -->
+               </div>
+               <div class="pt-xl-11 mb-lg-n17">
+                  <div class="card border-0 tab-shadow">
+                     <div class="card-body">
+                        <ul class="nav tab-nav tab-nav-inner flex-nowrap pb-4 px-lg-3 px-2 pb-xl-0" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-medium active" id="pills-two-example2-tab" data-toggle="pill" href="#pills-two-example2" role="tab" aria-controls="pills-two-example2" aria-selected="true">
+                                   <div class="d-flex flex-column flex-md-row position-relative text-black align-items-center">
+                                      <span class="tabtext mt-2 mt-md-0 font-size-12 font-weight-semi-bold">ONE-WAY</span>
+                                   </div>
+                                </a>
+                             </li>
+                           <li class="nav-item">
+                              <a class="nav-link font-weight-medium" id="pills-one-example2-tab" data-toggle="pill" href="#pills-one-example2" role="tab" aria-controls="pills-one-example2" aria-selected="false">
+                                 <div class="d-flex flex-column flex-md-row position-relative text-black align-items-center">
+                                    <span class="tabtext mt-2 mt-md-0 font-size-12 font-weight-semi-bold">ROUND-TRIP</span>
+                                 </div>
+                              </a>
+                           </li>
 
-							<div class="panel-h">You're traveling for</div>
-							<div class="q-btn-grid c-combo">
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Leisure</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Business</span></a>
-								<a href="javascript:void(0);" class="stylish-btn" style="border-radius: 20px;"><span>Other</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="panel style1 next-panel">
-					<div class="main-title c2 c-util">
-					An agent is ready for you
-					</div>
-					<div class="main-sh c1 c-util">click the button below to initiate the call!</div>
-					<a href="tel:+" class="btn-s c2 btn-wt c-util hover-dark center panel-cta"  style="border-radius: 20px;" id='num_href2'><span>Get Started</span></a>
-				</div>
-				<div class="panel style1 alter">
-					<div class="panel-h">Get 1st rate service for stress-free travel</div>
-					<div class="p">We partner with America's most respected airlines to provide a flexible and enjoyable travel management experience.<br/>
-					By speaking to a customer service agent, you receive the best possible service while booking or changing your flight.</div><br/><br/>
+                        </ul>
+                        <div class="tab-content hero-tab-pane">
+                           <div class="tab-pane fade pt-xl-4" id="pills-one-example2" role="tabpanel" aria-labelledby="pills-one-example2-tab">
+                            <form class="js-validate" action="searchflight.html" method="GET">
+                                 <div class="row nav-select d-block d-lg-flex mb-lg-2 px-lg-3 px-2">
+                                    <div class="col-sm-12 col-lg-3dot7 mb-4 mb-lg-0">
+                                       <!-- Input -->
+                                       <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From where</span>
+                                        <select type="text" name="depart" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                            data-style=""
+                                            data-live-search="true"
+                                            data-searchbox-classes="input-group-sm">
+                                        </select>
+                                        <!-- End Select -->
 
-					<a href="tel:+" class="btn-s c2 btn-wt c-util hover-dark center panel-cta  animated infinite pulse"  style="border-radius: 20px;" id='num_href3'>Call Now<br/><span id='num_clear'></span></a>
-				</div>
-			</div>
-
-		</div>
-		<script type="text/javascript">
-			function parse_number(string) {
-			  return `+${string.slice(0,-10)} (${string.slice(-10,-7)}) ${string.slice(-7,-4)}- ${string.slice(-4)}`;
-				}
-				var page_name='homepage'
-
-				$.ajax({
-			    url: `https://docs.google.com/a/google.com/spreadsheets/d/1-ZnnJREUB3qt54FlkEgkGOaaG5_Q5QtOOg0Bh9eLmV8/gviz/tq?tq=select%20*%20where%20A%20%3D%20%27${page_name}%27`,
-			    type: "get",
-			   success:function(data){
-		   			var number = JSON.parse(data.split('(')[1].split(')')[0])['table']['rows'][0]['c'][1]['v'];
-		   			console.log(`number is: ${number}`);
-		   			$('#num_href1').attr('href', `tel:+${number}`);
-		   			$('#num_href2').attr('href', `tel:+${number}`);
-		   			$('#num_href3').attr('href', `tel:+${number}`);
-
-		   			$("#num_clear").html(parse_number(`${number}`));
-			  }
-			  
-		});
-
-
-
-
-	</script>
-		<div class="section footer c1 c-util">
-			<div class="cw">
-				<div class="p">Disclaimer:</div>
-				<div class="p">Our company is a third-party provider of airline ticket booking, cancellation, and date change services. We are not affiliated with any particular airline, and we do not control or operate any airline. We provide our services solely as a convenience to our customers, and we do not guarantee the availability of any particular flight or the accuracy of any flight information. Any prices or availability displayed on our website or through our customer service representatives are subject to change without notice.</div>
-				<div class="p">We are not responsible for any errors, omissions, or miscommunications related to airline ticket bookings, cancellations, or date changes. Customers are solely responsible for ensuring that they have the correct travel documents, including passports and visas, and for complying with all applicable laws and regulations. Our liability for any claims arising from or related to our services is limited to the amount paid by the customer for those services. By using our services, you acknowledge and agree to these terms and conditions</div>
-				<div class="footer-h">Aireasyticket &copy 2023</div>
-				<a href="privacy.html" class="footer-links">Privacy Policy</a> | <a href="/terms.html" class="footer-links">Terms of Use</a>
-			</div>
-		</div>
-		<script>
-
-
-			$(function(){
-
-			});
-
-			$(document).on("click",".q-btn-grid a",function(){
-
-				let question = $(this).closest(".q-item");
-
-				if(question.is(":last-child")){
-					let target = $(this).closest(".panel");
-					target.addClass("transitioning");
-
-					setTimeout(function(){
-						target.closest(".panel").remove();
-						$(".next-panel").addClass("show");
-						$(".next-hide").remove();
-					},2000);
-				}else{
-
-					$(this).closest(".q-list").find("> div:visible").first().hide().next().fadeIn();
-				}
+                                       <!-- End Input -->
+                                    </div>
+                                    <div class="col-sm-12 col-lg-3dot2 mb-4 mb-lg-0">
+                                       <!-- Input -->
+                                       <span class="d-block text-gray-1 text-left font-weight-normal mb-0">To where</span>
+                                    <select type="text" name="arrive" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                       data-style=""
+                                       data-live-search="true"
+                                       data-searchbox-classes="input-group-sm">
+                                   </select>
+                                       <!-- End Input -->
+                                    </div>
+                                    <div class="col-sm-12 col-lg-3 mb-4 mb-lg-0">
+                                        <!-- Input -->
+                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart-Return</span>
+                                        <div class="border-bottom border-width-2 border-color-1">
+                                            <div id="datepickerWrapperFromOne" class="u-datepicker input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="d-flex align-items-center mr-2">
+                                                        <i class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                    </span>
+                                                </div>
+                                                <input name="depart-return-date" required class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0" type="text"
+                                                    data-rp-wrapper="#datepickerWrapperFromOne"
+                                                    data-rp-type="range"
+                                                    data-rp-date-format="M d / Y"
+                                                    data-rp-default-date=""
+                                                    data-rp-min-date="">
+                                            </div>
+                                            <!-- End Datepicker -->
+                                        </div>
+                                        <!-- End Input -->
+                                    </div>
+                                    <div class="col-sm-12 col-lg-1dot8 text-left align-self-lg-end">
+                                       <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover"><i class="flaticon-magnifying-glass mr-2"></i>Search</button>
+                                    </div>
+                                 </div>
+                                 <!-- End Checkbox -->
+                              </form>
+                           </div>
+                           <div class="tab-pane fade pt-xl-4 active show" id="pills-two-example2" role="tabpanel" aria-labelledby="pills-two-example2-tab">
+                            <form class="js-validate" action="searchflight.html" method="GET">
+                                 <div class="row nav-select d-block d-lg-flex mb-lg-2 px-lg-3 px-2">
+                                    <div class="col-sm-12 col-lg-3dot7 mb-4 mb-lg-0">
+                                       <!-- Input -->
+                                       <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From where</span>
+                                       <select type="text" name="depart" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                       data-style=""
+                                       data-live-search="true"
+                                       data-searchbox-classes="input-group-sm">
 
 
-			});
+                                   </select>
+                                       <!-- End Input -->
+                                    </div>
+                                    <div class="col-sm-12 col-lg-3dot2 mb-4 mb-lg-0">
+                                       <!-- Input -->
+                                       <span class="d-block text-gray-1 text-left font-weight-normal mb-0">To where</span>
+                                       <select type="text" name="arrive" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                       data-style=""
+                                       data-live-search="true"
+                                       data-searchbox-classes="input-group-sm">
 
-		</script>
-	</body>
+                                   </select>
+                                       <!-- End Input -->
+                                    </div>
+                                    <div class="col-sm-12 col-lg-3dot2 mb-4 mb-lg-0">
+                                        <!-- Input -->
+                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
+                                        <div class="border-bottom border-width-2 border-color-1">
+                                            <div id="datepickerWrapperFromtwo" class="u-datepicker input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="d-flex align-items-center mr-2">
+                                                        <i class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                    </span>
+                                                </div>
+                                                <input name="depart-date" required class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0" type="text"
+                                                    data-rp-wrapper="#datepickerWrapperFromtwo"
+                                                    data-rp-date-format="M d / Y"
+                                                    data-rp-default-date="">
+                                            </div>
+                                            <!-- End Datepicker -->
+                                        </div>
+                                        <!-- End Input -->
+                                    </div>
+                                    <div class="col-sm-12 col-lg-1dot8 text-left align-self-lg-end">
+                                       <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover"><i class="flaticon-magnifying-glass mr-2"></i>Search</button>
+                                    </div>
+                                 </div>
+                                 <!-- End Checkbox -->
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- ========== END HERO ========== -->
+         <!-- Destinantion v6 -->
+         <div class="destination-block destination-v6 border-bottom border-color-8">
+            <div class="container space-3">
+               <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mt-3">
+                  <h2 class="section-title text-black font-size-30 font-weight-bold mb-0">Top Destination</h2>
+               </div>
+               <div class="row">
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img3.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">Turkey</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img7.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">United States</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img6.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">Ukraine</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img10.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">France</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img2.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">India</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img5.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">United Kingdom</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img9.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">Germany</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img8.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">Greece</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img1.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">Canada</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+                  <!-- Card Block -->
+                  <div class="col-md-4 col-lg-6 col-xl-2dot4 mb-3 mb-md-4 pb-1">
+                     <a class="d-block" href="#">
+                        <div class="min-height-240 rounded-border px-4 py-5 bg-img-hero transition-3d-hover gradient-overlay-half-bg-gradient-v2 gradient-overlay shadow-hover-2 dropdown" style="background-image: url(assets/img/235x240/img4.jpg);">
+                           <header class="w-100 d-flex justify-content-between">
+                              <div class="position-relative">
+                                 <h5 class="text-white font-weight-bold font-size-17 mb-1 text-lh-2 d-block">Italy</h5>
+                              </div>
+                           </header>
+                        </div>
+                     </a>
+                  </div>
+                  <!-- End Card Block -->
+               </div>
+            </div>
+         </div>
+         <!-- End Destinantion v6 -->
+         <div class="clients-block clients-v1 border-bottom border-color-8">
+            <div class="container space-1">
+               <div class="row justify-content-between text-center text-md-left">
+                  <div class="col-12 col-md mb-5 mb-md-3 pb-md-1">
+                     <img class="img-fluid" src="assets/img/200x200/img11.png" alt="Image Description">
+                  </div>
+                  <div class="col-12 col-md mb-5 mb-md-3 pb-md-1">
+                     <img class="img-fluid" src="assets/img/200x200/img12.png" alt="Image Description">
+                  </div>
+                  <div class="col-12 col-md mb-5 mb-md-3 pb-md-1">
+                     <img class="img-fluid" src="assets/img/200x200/img13.png" alt="Image Description">
+                  </div>
+                  <div class="col-12 col-md mb-5 mb-md-3 pb-md-1">
+                     <img class="img-fluid" src="assets/img/200x200/img14.png" alt="Image Description">
+                  </div>
+                  <div class="col-12 col-md mb-md-3 pb-md-1">
+                     <img class="img-fluid" src="assets/img/200x200/img15.png" alt="Image Description">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- End Clients v1 -->
+      </main>
+      <!-- ========== END MAIN CONTENT ========== -->
+      <!-- ========== FOOTER ========== -->
+      <footer class="footer mt-4">
+         <div class="space-bottom-2 space-top-1">
+            <div class="container">
+               <div class="row justify-content-xl-between">
+                  <div class="col-12 col-lg-6 col-xl-4dot1 mb-6 mb-md-10 mb-xl-0">
+                     <!-- Contacts -->
+                     <div class="d-md-flex d-lg-block">
+                        <div class="mb-5 mr-md-7 mr-lg-0">
+                           <h4 class="h6 mb-4 font-weight-bold">Need AirEasyTicket Help?</h4>
+                           <a href="tel:18338440966">
+                              <div class="d-flex align-items-center">
+                                 <div class="mr-4">
+                                    <img src="logo-circle.png" alt="AirEasyTicket Help Icon">
+                                 </div>
+                                 <div>
+                                    <div class="mb-2 h6 font-weight-normal text-gray-1">Got Questions ? Call us 24/7!</div>
+                                    <small class="d-block font-size-18 font-weight-normal text-primary">Call Us: <span class="text-primary font-weight-semi-bold">1 (833) 844- 0966</span></small>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                        <div class="ml-md-6 ml-lg-0">
+                           <div class="mb-4">
+                              <h4 class="h6 font-weight-bold mb-2 font-size-17">Contact Info</h4>
+                              <address class="pr-4">
+                                 <span class="mb-2 h6 font-weight-normal text-gray-1">
+                                 1355 Market St, Suite 900 San Francisco, CA 94103 United States
+                                 </span>
+                              </address>
+                           </div>
+                           <ul class="list-inline mb-0">
+                              <li class="list-inline-item mr-2">
+                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
+                                 <span class="fab fa-facebook-f btn-icon__inner"></span>
+                                 </a>
+                              </li>
+                              <li class="list-inline-item mr-2">
+                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
+                                 <span class="fab fa-twitter btn-icon__inner"></span>
+                                 </a>
+                              </li>
+                              <li class="list-inline-item mr-2">
+                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
+                                 <span class="fab fa-instagram btn-icon__inner"></span>
+                                 </a>
+                              </li>
+                              <li class="list-inline-item mr-2">
+                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
+                                 <span class="fab fa-linkedin-in btn-icon__inner"></span>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <!-- End Contacts -->
+                  </div>
+                  <div class="col-12 col-lg-6 col-xl-2dot1 mb-6 mb-md-10 mb-xl-0">
+                     <h4 class="h6 font-weight-bold mb-2 mb-xl-4">Company</h4>
+                     <!-- List Group -->
+                     <ul class="list-group list-group-flush list-group-borderless mb-0">
+                        <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="about.html">About us</a></li>
+                        <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="contact.html">Careers</a></li>
+                        <li><a class="list-group-item list-group-item-action text-decoration-on-hover" href="terms-conditions.html">Terms of Use</a></li>
+                     </ul>
+                     <!-- End List Group -->
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="space-1">
+            <div class="container">
+               <div class="d-lg-flex d-md-block justify-content-between align-items-center">
+                  <!-- Copyright -->
+                  <p class="mb-3 mb-lg-0 text-gray-1">© 2024 AirEasyTicket | All rights reserved</p>
+                  <!-- End Copyright -->
+                  <!-- Social Networks -->
+                  <ul class="list-inline mb-0">
+                     <li class="list-inline-item pb-3 pb-md-0">
+                        <a class="list-group-item-action text-decoration-on-hover pr-3" href="index.html">Home</a>
+                     </li>
+                     <li class="list-inline-item pb-3 pb-md-0">
+                        <a class="list-group-item-action text-decoration-on-hover pr-3" href="about.html">About Us</a>
+                     </li>
+                     <li class="list-inline-item pb-3 pb-md-0">
+                        <a class="list-group-item-action text-decoration-on-hover pr-3" href="#">FAQs</a>
+                     </li>
+                     <li class="list-inline-item pb-3 pb-md-0">
+                        <a class="list-group-item-action text-decoration-on-hover pr-3" href="contact.html">Contact</a>
+                     </li>
+                  </ul>
+                  <!-- End Social Networks -->
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- ========== End FOOTER ========== -->
+      <!-- Page Preloader -->
+      <div id="jsPreloader" class="page-preloader">
+         <div class="page-preloader__content-centered">
+            <div class="spinner-grow text-primary" role="status">
+               <span class="sr-only">Loading...</span>
+            </div>
+         </div>
+      </div>
+      <!-- End Page Preloader -->
+      <!-- Go to Top -->
+      <a class="js-go-to u-go-to-modern" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
+      <span class="flaticon-arrow u-go-to-modern__inner"></span>
+      </a>
+      <!-- End Go to Top -->
+      <!-- JS Global Compulsory -->
+      <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+      <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+      <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+      <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
+      <!-- JS Implementing Plugins -->
+      <script src="assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+      <script src="assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+      <script src="assets/vendor/flatpickr/dist/flatpickr.min.js"></script>
+      <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+      <script src="assets/vendor/slick-carousel/slick/slick.js"></script>
+      <script src="assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
+      <script src="assets/vendor/appear.js"></script>
+      <!-- JS MyTravel -->
+      <script src="assets/js/hs.core.js"></script>
+      <script src="assets/js/components/hs.header.js"></script>
+      <script src="assets/js/components/hs.unfold.js"></script>
+      <script src="assets/js/components/hs.validation.js"></script>
+      <script src="assets/js/components/hs.show-animation.js"></script>
+      <script src="assets/js/components/hs.range-datepicker.js"></script>
+      <script src="assets/js/components/hs.selectpicker.js"></script>
+      <script src="assets/js/components/hs.go-to.js"></script>
+      <script src="assets/js/components/hs.slick-carousel.js"></script>
+      <script src="assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+      <script src="assets/js/components/hs.svg-injector.js"></script>
+      <script src="assets/js/components/hs.quantity-counter.js"></script>
+      <script src="assets/js/components/hs.counter.js"></script>
+      <!-- JS Plugins Init. -->
+      <script>
+        $(document).on('ready', function () {
+
+
+
+    // Update the minimum selectable date to today
+    var today = new Date();
+    var tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var nextWeek = new Date(today);
+    nextWeek.setDate(nextWeek.getDate() + 7);
+
+    $('.js-range-datepicker[data-rp-wrapper="#datepickerWrapperFromOne"]').each(function () {
+        $(this).flatpickr({
+            mode: 'range',
+            dateFormat: 'M d / Y',
+            defaultDate: [tomorrow, nextWeek],
+            minDate: 'today', // Set the minimum selectable date to today
+            noCalendar: false,
+            highlightToday: false
+        });
+    });
+
+    $('.js-range-datepicker[data-rp-wrapper="#datepickerWrapperFromtwo"]').each(function () {
+        $(this).flatpickr({
+            dateFormat: 'M d / Y',
+            defaultDate: tomorrow,
+            minDate: 'today', // Set the minimum selectable date to today
+            noCalendar: false,
+            highlightToday: false
+        });
+    });
+
+
+        // Allow form submission
+        $('form.js-validate').on('submit', function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Perform any necessary validation or data processing here
+
+        // Submit the form
+        this.submit();
+    });
+
+             // initialization of header
+             $.HSCore.components.HSHeader.init($('#header'));
+         
+             // initialization of unfold component
+             $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+         
+             // initialization of show animations
+             $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+         
+             // initialization of datepicker
+             $.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
+         
+             // initialization of select
+             $.HSCore.components.HSSelectPicker.init('.js-select');
+         
+             // initialization of quantity counter
+             $.HSCore.components.HSQantityCounter.init('.js-quantity');
+         
+             // initialization of slick carousel
+             $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+         
+             // initialization of counters
+             var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
+         
+             // initialization of go to
+             $.HSCore.components.HSGoTo.init('.js-go-to');
+         });
+
+
+// Helper function to format the date in "MMM D / YYYY" format
+function formatDate(date) {
+    var monthNames = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+    var monthIndex = date.getMonth();
+    var day = date.getDate();
+    var year = date.getFullYear();
+
+    return monthNames[monthIndex] + ' ' + day + ' / ' + year;
+}
+
+
+         $(window).on('load', function () {
+             // initialization of HSMegaMenu component
+             $('.js-mega-menu').HSMegaMenu({
+                 event: 'hover',
+                 pageContainer: $('.container'),
+                 breakpoint: 1199.98,
+                 hideTimeOut: 0
+             });
+         
+             // initialization of svg injector module
+             $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+         
+             // Page preloader
+             setTimeout(function() {
+               $('#jsPreloader').fadeOut(500)
+             }, 800);
+         });
+         
+
+
+    function populateLocations(selectElement, keyword) {
+
+    var settings = {
+        "url": "https://us-central1-vast-nexus-420216.cloudfunctions.net/function-1",
+        "method": "POST",
+        "timeout": 3600,
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Methods": "*",
+            "Content-Type": "application/json",
+        },
+        "data": JSON.stringify({ "keyword": keyword }),
+    };
+    $.ajax(settings)
+    .done(function (response) {
+        console.log(response)
+        var locations = response.data;
+        selectElement.empty(); 
+        if (locations.length === 0) {
+            selectElement.append(`<option disabled>No results matched "${keyword}"</option>`);
+            selectElement.selectpicker('refresh'); // Refresh the selectpicker
+        }
+        else {
+        $.each(locations, function (index, location) {
+            
+            var option = `<option class="border-bottom border-color-1" value="${location.iataCode}" data-content='
+                                                <span class="d-flex align-items-center">
+                                                    <span class="font-size-16">${location.iataCode } - ${location.name} ${location.subType}</span>
+                                                </span>'>
+                                                ${location.iataCode } - ${location.name} ${location.subType}
+                                            </option>`
+            selectElement.append(option);
+        });
+    } 
+        selectElement.selectpicker('refresh'); // Refresh the selectpicker
+
+    });
+}
+
+// Debounce function to delay the search
+function debounce(func, delay) {
+    var timeoutId;
+    return function () {
+        var args = arguments;
+        var context = this;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function () {
+            func.apply(context, args);
+        }, delay);
+    };
+}
+
+
+// Handle search input change event with debounce
+$('.js-select').on('show.bs.select', function (e) {
+    var searchBox = $(this).parent().find('.bs-searchbox input');
+    var selectElement = $(this);
+    var debouncedSearch = debounce(function () {
+        selectElement.empty();
+        selectElement.append('<option disabled>Loading...</option>');
+        selectElement.selectpicker('refresh');
+        var keyword = searchBox.val();
+            populateLocations(selectElement, keyword);
+    }, 500);
+
+    searchBox.on('input', debouncedSearch);
+});
+
+
+
+      </script>
+   </body>
 </html>

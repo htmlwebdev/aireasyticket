@@ -60,73 +60,85 @@
    </head>
    <body>
       <!-- ========== HEADER ========== -->
-      <header id="header" class="u-header u-header--white-nav-links-xl u-header--bg-violet-xl u-header--static-xl u-header--show-hide-xl" data-header-fix-moment="500" data-header-fix-effect="slide">
-         <div class="u-header__section u-header__shadow-on-show-hide py-4 py-xl-0">
+      <header id="header" class="u-header u-header--abs-top u-header--white-nav-links-xl u-header--bg-transparent u-header--show-hide border-bottom border-xl-bottom-0 border-color-white" data-header-fix-moment="500" data-header-fix-effect="slide">
+         <div class="u-header__section u-header__shadow-on-show-hide">
             <div id="logoAndNav" class="container-fluid py-xl-3">
                <!-- Nav -->
                <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space">
                   <!-- Logo -->
-                  <a class="navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-white" href="index.html" aria-label="AirEasyTicket">
-                  <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
+                  <a class="navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-white mr-0 mr-xl-5" href="index.html" aria-label="MyTravel">
+                     <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
                   <span class="u-header__navbar-brand-text">AirEasyTicket</span>
                   </a>
                   <!-- End Logo -->
                   <!-- Handheld Logo -->
-                  <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-collapsed" href="index.html" aria-label="AirEasyTicket">
-                  <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
+                  <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-collapsed" href="index.html" aria-label="MyTravel">
+                     <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
                   <span class="u-header__navbar-brand-text">AirEasyTicket</span>
                   </a>
                   <!-- End Handheld Logo -->
                   <!-- Scroll Logo -->
-                  <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-on-scroll" href="index.html" aria-label="AirEasyTicket">
-                  <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
+                  <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-on-scroll" href="index.html" aria-label="MyTravel">
+                     <img src="logo-circle.png" alt="AirEasyTicket Logo" style="max-width: 20%;">
                   <span class="u-header__navbar-brand-text">AirEasyTicket</span>
                   </a>
                   <!-- End Scroll Logo -->
                   <!-- Responsive Toggle Button -->
-                  <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--primary order-2 ml-3" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
-                  <span id="hamburgerTrigger" class="u-hamburger__box">
-                  <span class="u-hamburger__inner"></span>
-                  </span>
-                  </button>
+                        <!-- Responsive Toggle Button -->
+                        <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--white order-2 ml-3" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+                           <span id="hamburgerTrigger" class="u-hamburger__box">
+                               <span class="u-hamburger__inner"></span>
+                           </span>
+                       </button>
+                       <!-- End Responsive Toggle Button -->
                   <!-- End Responsive Toggle Button -->
                   <!-- Navigation -->
                   <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative">
                      <ul class="navbar-nav u-header__navbar-nav">
                         <!-- Home -->
-                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                        <li class="nav-item u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                            <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="index.html" aria-expanded="false">Home</a>
                         </li>
-                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                        <li class="nav-item  u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                            <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="about.html" aria-haspopup="true" aria-expanded="false">About Us</a>
                         </li>
-                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                        <li class="nav-item u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                            <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="faq.html" aria-haspopup="true" aria-expanded="false">FAQs</a>
                         </li>
-                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                        <li class="nav-item u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                            <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="contact.html" aria-haspopup="true" aria-expanded="false">Contact</a>
+                        </li>
+                        <li class="nav-item  u-header__nav-item btn-bg-transparent" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
+                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="tel:18338440966" aria-haspopup="true" aria-expanded="false">Call Us</a>
                         </li>
                      </ul>
                   </div>
                   <!-- End Navigation -->
+
+               
+               
                </nav>
                <!-- End Nav -->
+
+
             </div>
          </div>
       </header>
+
       <!-- ========== End HEADER ========== -->
       <!-- ========== MAIN CONTENT ========== -->
       <main id="content">
          <!-- ========== HERO ========== -->
-         <div class="hero-block hero-v8 bg-img-hero-bottom text-center gradient-overlay-half-bg-violet-light z-index-2" style="background-image: url(assets/img/1920x650/img1.jpg);">
+         <div class="hero-block hero-v8 bg-img-hero-bottom text-center gradient-overlay-half-bg-blue-light z-index-2" style="background-image: url(assets/img/1920x650/img1.jpg);">
             <div class="container space-2 space-top-lg-3 space-top-xl-6">
-               <div class="row justify-content-md-center pb-4">
+               <div class="row justify-content-md-center pb-xl-8">
                   <!-- Info -->
-                  <div class="pb-lg-8 pb-xl-11 pb-3">
-                     <h1 class="font-size-60 font-size-xs-30 text-white font-weight-bold">Discover the World, One Flight at a Time</h1>
+                  <div class="py-8 py-xl-10 pb-5">
+                      <h1 class="font-size-60 font-size-xs-30 text-white font-weight-bold">Discover the World, One Flight at a Time</h1>
+                      <p class="font-size-20 font-weight-normal text-white">Unbeatable Deals on Flights Worldwide</p>
                   </div>
                   <!-- End Info -->
-               </div>
+              </div>
                <div class="pt-xl-11 mb-lg-n17">
                   <div class="card border-0 tab-shadow">
                      <div class="card-body">
@@ -487,7 +499,7 @@
                      <!-- List Group -->
                      <ul class="list-group list-group-flush list-group-borderless mb-0">
                         <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="about.html">About us</a></li>
-                        <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="contact.html">Careers</a></li>
+                        <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="contact.html">Contact</a></li>
                         <li><a class="list-group-item list-group-item-action text-decoration-on-hover" href="terms-conditions.html">Terms of Use</a></li>
                      </ul>
                      <!-- End List Group -->
@@ -744,5 +756,7 @@ $('.js-select').on('show.bs.select', function (e) {
 
 
       </script>
+
+      
    </body>
 </html>

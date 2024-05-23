@@ -46,6 +46,9 @@
       <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
       <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
       <link rel="stylesheet" href="assets/vendor/dzsparallaxer/dzsparallaxer.css">
+      <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+
+
       <!-- CSS MyTravel Template -->
       <link rel="stylesheet" href="assets/css/theme.css">
       <style>
@@ -144,14 +147,14 @@
                      <div class="card-body">
                         <ul class="nav tab-nav tab-nav-inner flex-nowrap pb-4 px-lg-3 px-2 pb-xl-0" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link font-weight-medium active" id="pills-two-example2-tab" data-toggle="pill" href="#pills-two-example2" role="tab" aria-controls="pills-two-example2" aria-selected="true">
+                                <a class="nav-link font-weight-medium active" id="pills-one-example2-tab" data-toggle="pill" href="#pills-one-example2" role="tab" aria-controls="pills-one-example2" aria-selected="true">
                                    <div class="d-flex flex-column flex-md-row position-relative text-black align-items-center">
                                       <span class="tabtext mt-2 mt-md-0 font-size-12 font-weight-semi-bold">ONE-WAY</span>
                                    </div>
                                 </a>
                              </li>
                            <li class="nav-item">
-                              <a class="nav-link font-weight-medium" id="pills-one-example2-tab" data-toggle="pill" href="#pills-one-example2" role="tab" aria-controls="pills-one-example2" aria-selected="false">
+                              <a class="nav-link font-weight-medium" id="pills-two-example2-tab" data-toggle="pill" href="#pills-two-example2" role="tab" aria-controls="pills-two-example2" aria-selected="false">
                                  <div class="d-flex flex-column flex-md-row position-relative text-black align-items-center">
                                     <span class="tabtext mt-2 mt-md-0 font-size-12 font-weight-semi-bold">ROUND-TRIP</span>
                                  </div>
@@ -160,66 +163,13 @@
 
                         </ul>
                         <div class="tab-content hero-tab-pane">
-                           <div class="tab-pane fade pt-xl-4" id="pills-one-example2" role="tabpanel" aria-labelledby="pills-one-example2-tab">
-                            <form class="js-validate" action="searchflight.html" method="GET">
+                           <div class="tab-pane fade pt-xl-4 active show" id="pills-one-example2" role="tabpanel" aria-labelledby="pills-one-example2-tab">
+                            <form class="js-validate1" action="searchflight.html" method="GET">
                                  <div class="row nav-select d-block d-lg-flex mb-lg-2 px-lg-3 px-2">
                                     <div class="col-sm-12 col-lg-3dot7 mb-4 mb-lg-0">
                                        <!-- Input -->
                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From where</span>
-                                        <select type="text" name="depart" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
-                                            data-style=""
-                                            data-live-search="true"
-                                            data-searchbox-classes="input-group-sm">
-                                        </select>
-                                        <!-- End Select -->
-
-                                       <!-- End Input -->
-                                    </div>
-                                    <div class="col-sm-12 col-lg-3dot2 mb-4 mb-lg-0">
-                                       <!-- Input -->
-                                       <span class="d-block text-gray-1 text-left font-weight-normal mb-0">To where</span>
-                                    <select type="text" name="arrive" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
-                                       data-style=""
-                                       data-live-search="true"
-                                       data-searchbox-classes="input-group-sm">
-                                   </select>
-                                       <!-- End Input -->
-                                    </div>
-                                    <div class="col-sm-12 col-lg-3 mb-4 mb-lg-0">
-                                        <!-- Input -->
-                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart-Return</span>
-                                        <div class="border-bottom border-width-2 border-color-1">
-                                            <div id="datepickerWrapperFromOne" class="u-datepicker input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="d-flex align-items-center mr-2">
-                                                        <i class="flaticon-calendar text-primary font-weight-semi-bold"></i>
-                                                    </span>
-                                                </div>
-                                                <input name="depart-return-date" required class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0" type="text"
-                                                    data-rp-wrapper="#datepickerWrapperFromOne"
-                                                    data-rp-type="range"
-                                                    data-rp-date-format="M d / Y"
-                                                    data-rp-default-date=""
-                                                    data-rp-min-date="">
-                                            </div>
-                                            <!-- End Datepicker -->
-                                        </div>
-                                        <!-- End Input -->
-                                    </div>
-                                    <div class="col-sm-12 col-lg-1dot8 text-left align-self-lg-end">
-                                       <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover"><i class="flaticon-magnifying-glass mr-2"></i>Search</button>
-                                    </div>
-                                 </div>
-                                 <!-- End Checkbox -->
-                              </form>
-                           </div>
-                           <div class="tab-pane fade pt-xl-4 active show" id="pills-two-example2" role="tabpanel" aria-labelledby="pills-two-example2-tab">
-                            <form class="js-validate" action="searchflight.html" method="GET">
-                                 <div class="row nav-select d-block d-lg-flex mb-lg-2 px-lg-3 px-2">
-                                    <div class="col-sm-12 col-lg-3dot7 mb-4 mb-lg-0">
-                                       <!-- Input -->
-                                       <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From where</span>
-                                       <select type="text" name="depart" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                       <select type="text" name="depart1" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
                                        data-style=""
                                        data-live-search="true"
                                        data-searchbox-classes="input-group-sm">
@@ -231,7 +181,7 @@
                                     <div class="col-sm-12 col-lg-3dot2 mb-4 mb-lg-0">
                                        <!-- Input -->
                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">To where</span>
-                                       <select type="text" name="arrive" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                       <select type="text" name="arrive1" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
                                        data-style=""
                                        data-live-search="true"
                                        data-searchbox-classes="input-group-sm">
@@ -265,6 +215,59 @@
                                  <!-- End Checkbox -->
                               </form>
                            </div>
+                           <div class="tab-pane fade pt-xl-4" id="pills-two-example2" role="tabpanel" aria-labelledby="pills-two-example2-tab">
+                              <form class="js-validate2" action="searchflight.html" method="GET">
+                                   <div class="row nav-select d-block d-lg-flex mb-lg-2 px-lg-3 px-2">
+                                      <div class="col-sm-12 col-lg-3dot7 mb-4 mb-lg-0">
+                                         <!-- Input -->
+                                         <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From where</span>
+                                          <select type="text" name="depart2" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                              data-style=""
+                                              data-live-search="true"
+                                              data-searchbox-classes="input-group-sm">
+                                          </select>
+                                          <!-- End Select -->
+  
+                                         <!-- End Input -->
+                                      </div>
+                                      <div class="col-sm-12 col-lg-3dot2 mb-4 mb-lg-0">
+                                         <!-- Input -->
+                                         <span class="d-block text-gray-1 text-left font-weight-normal mb-0">To where</span>
+                                         <select type="text" name="arrive2" required class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold" title="City or airport" placeholder="City or airport"
+                                            data-style=""
+                                            data-live-search="true"
+                                            data-searchbox-classes="input-group-sm">
+                                         </select>
+                                         <!-- End Input -->
+                                      </div>
+                                      <div class="col-sm-12 col-lg-3 mb-4 mb-lg-0">
+                                          <!-- Input -->
+                                          <span class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart-Return</span>
+                                          <div class="border-bottom border-width-2 border-color-1">
+                                              <div id="datepickerWrapperFromOne" class="u-datepicker input-group">
+                                                  <div class="input-group-prepend">
+                                                      <span class="d-flex align-items-center mr-2">
+                                                          <i class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                      </span>
+                                                  </div>
+                                                  <input name="depart-return-date" required class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0" type="text"
+                                                      data-rp-wrapper="#datepickerWrapperFromOne"
+                                                      data-rp-type="range"
+                                                      data-rp-date-format="M d / Y"
+                                                      data-rp-default-date=""
+                                                      data-rp-min-date="">
+                                              </div>
+                                              <!-- End Datepicker -->
+                                          </div>
+                                          <!-- End Input -->
+                                      </div>
+                                      <div class="col-sm-12 col-lg-1dot8 text-left align-self-lg-end">
+                                         <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover"><i class="flaticon-magnifying-glass mr-2"></i>Search</button>
+                                      </div>
+                                   </div>
+                                   <!-- End Checkbox -->
+                                </form>
+                             </div>
                         </div>
                      </div>
                   </div>
@@ -496,13 +499,14 @@
                   </div>
                   <div class="col-12 col-lg-6 col-xl-2dot1 mb-6 mb-md-10 mb-xl-0">
                      <h4 class="h6 font-weight-bold mb-2 mb-xl-4">Company</h4>
-                     <!-- List Group -->
-                     <ul class="list-group list-group-flush list-group-borderless mb-0">
-                        <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="about.html">About us</a></li>
-                        <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="contact.html">Contact</a></li>
-                        <li><a class="list-group-item list-group-item-action text-decoration-on-hover" href="terms-conditions.html">Terms of Use</a></li>
-                     </ul>
-                     <!-- End List Group -->
+                        <!-- List Group -->
+                        <ul class="list-group list-group-flush list-group-borderless mb-0">
+                           <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="about.html">About us</a></li>
+                           <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="contact.html">Contact</a></li>
+                           <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="terms-conditions.html">Terms of Use</a></li>
+                           <li><a class="text-decoration-on-hover list-group-item list-group-item-action" href="privacy-policy.html">Privacy Policy</a></li>
+                       </ul>
+                       <!-- End List Group -->
                   </div>
                </div>
             </div>
@@ -522,7 +526,7 @@
                         <a class="list-group-item-action text-decoration-on-hover pr-3" href="about.html">About Us</a>
                      </li>
                      <li class="list-inline-item pb-3 pb-md-0">
-                        <a class="list-group-item-action text-decoration-on-hover pr-3" href="#">FAQs</a>
+                        <a class="list-group-item-action text-decoration-on-hover pr-3" href="faq.html">FAQs</a>
                      </li>
                      <li class="list-inline-item pb-3 pb-md-0">
                         <a class="list-group-item-action text-decoration-on-hover pr-3" href="contact.html">Contact</a>
@@ -591,7 +595,7 @@
     $('.js-range-datepicker[data-rp-wrapper="#datepickerWrapperFromOne"]').each(function () {
         $(this).flatpickr({
             mode: 'range',
-            dateFormat: 'M d / Y',
+            dateFormat: 'd M Y',
             defaultDate: [tomorrow, nextWeek],
             minDate: 'today', // Set the minimum selectable date to today
             noCalendar: false,
@@ -601,7 +605,7 @@
 
     $('.js-range-datepicker[data-rp-wrapper="#datepickerWrapperFromtwo"]').each(function () {
         $(this).flatpickr({
-            dateFormat: 'M d / Y',
+            dateFormat: 'd M Y',
             defaultDate: tomorrow,
             minDate: 'today', // Set the minimum selectable date to today
             noCalendar: false,
@@ -611,14 +615,43 @@
 
 
         // Allow form submission
-        $('form.js-validate').on('submit', function (e) {
-        e.preventDefault(); // Prevent the default form submission
+        $('form.js-validate1').on('submit', function (e) {
+         
+        var departureLocation = $('select[name="depart1"]').selectpicker('val');
+         var arrivalLocation = $('select[name="arrive1"]').selectpicker('val');
+         console.log(departureLocation);
+         console.log(arrivalLocation);
+         // Check if departure and arrival locations are the same
 
-        // Perform any necessary validation or data processing here
+         if (departureLocation === arrivalLocation) {
+            e.preventDefault();
+            alert('Departure and arrival locations cannot be the same.');
+            return;
+         }
 
-        // Submit the form
-        this.submit();
+         // If all validations pass, allow form submission
+         this.submit();
     });
+
+
+        // Allow form submission
+        $('form.js-validate2').on('submit', function (e) {
+         
+         var departureLocation = $('select[name="depart2"]').selectpicker('val');
+          var arrivalLocation = $('select[name="arrive2"]').selectpicker('val');
+          console.log(departureLocation);
+          console.log(arrivalLocation);
+          // Check if departure and arrival locations are the same
+ 
+          if (departureLocation === arrivalLocation) {
+             e.preventDefault();
+             alert('Departure and arrival locations cannot be the same.');
+             return;
+          }
+ 
+          // If all validations pass, allow form submission
+          this.submit();
+     });
 
              // initialization of header
              $.HSCore.components.HSHeader.init($('#header'));
@@ -684,46 +717,102 @@ function formatDate(date) {
          
 
 
-    function populateLocations(selectElement, keyword) {
+//     function populateLocations(selectElement, keyword) {
 
-    var settings = {
-        "url": "https://us-central1-vast-nexus-420216.cloudfunctions.net/function-1",
-        "method": "POST",
-        "timeout": 3600,
-        "headers": {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Methods": "*",
-            "Content-Type": "application/json",
-        },
-        "data": JSON.stringify({ "keyword": keyword }),
-    };
-    $.ajax(settings)
-    .done(function (response) {
-        console.log(response)
-        var locations = response.data;
-        selectElement.empty(); 
-        if (locations.length === 0) {
-            selectElement.append(`<option disabled>No results matched "${keyword}"</option>`);
-            selectElement.selectpicker('refresh'); // Refresh the selectpicker
-        }
-        else {
-        $.each(locations, function (index, location) {
+//     var settings = {
+//         "url": "https://us-central1-vast-nexus-420216.cloudfunctions.net/function-1",
+//         "method": "POST",
+//         "timeout": 3600,
+//         "headers": {
+//             "Access-Control-Allow-Origin": "*",
+//             "Access-Control-Allow-Headers": "*",
+//             "Access-Control-Allow-Methods": "*",
+//             "Content-Type": "application/json",
+//         },
+//         "data": JSON.stringify({ "keyword": keyword }),
+//     };
+//     $.ajax(settings)
+//     .done(function (response) {
+//         console.log(response)
+//         var locations = response.data;
+//         selectElement.empty(); 
+//         if (locations.length === 0) {
+//             selectElement.append(`<option disabled>No results matched "${keyword}"</option>`);
+//             selectElement.selectpicker('refresh'); // Refresh the selectpicker
+//         }
+//         else {
+//         $.each(locations, function (index, location) {
             
-            var option = `<option class="border-bottom border-color-1" value="${location.iataCode}" data-content='
-                                                <span class="d-flex align-items-center">
-                                                    <span class="font-size-16">${location.iataCode } - ${location.name} ${location.subType}</span>
-                                                </span>'>
-                                                ${location.iataCode } - ${location.name} ${location.subType}
-                                            </option>`
-            selectElement.append(option);
-        });
-    } 
-        selectElement.selectpicker('refresh'); // Refresh the selectpicker
+//             var option = `<option class="border-bottom border-color-1" value="${location.iataCode}" data-content='
+//                                                 <span class="d-flex align-items-center">
+//                                                     <span class="font-size-16">${location.iataCode } - ${location.name} ${location.subType}</span>
+//                                                 </span>'>
+//                                                 ${location.iataCode } - ${location.name} ${location.subType}
+//                                             </option>`
+//             selectElement.append(option);
+//         });
+//     } 
+//         selectElement.selectpicker('refresh'); // Refresh the selectpicker
 
+//     });
+// }
+
+
+// Initialize Algolia client
+var client = algoliasearch('MZN6J7IX6E', '1cca7bb07493f3653b7c5e17b69b0d05');
+var index = client.initIndex('airports_data');
+
+function populateDefaultAirports(selectElement) {
+    var defaultAirports = [
+        { objectID: 'JFK', name: 'John F. Kennedy International Airport' },
+        { objectID: 'LAX', name: 'Los Angeles International Airport' },
+        { objectID: 'LHR', name: 'London Heathrow Airport'},
+        // Add more default airports as needed
+    ];
+
+
+    $.each(defaultAirports, function (index, airport) {
+        var option = `<option class="border-bottom border-color-1" value="${airport.objectID}" data-content='
+                          <span class="d-flex align-items-center">
+                              <span class="font-size-16">${airport.objectID} - ${airport.name}</span>
+                          </span>'>
+                          ${airport.objectID} - ${airport.name}
+                      </option>`;
+        selectElement.append(option);
     });
+
+    selectElement.selectpicker('refresh');
 }
 
+
+function populateLocations(selectElement, keyword) {
+    index.search(keyword, {hitsPerPage: 5},function (err, content) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        var locations = content.hits;
+        selectElement.empty();
+        console.log(locations);
+        if (locations.length === 0) {
+            selectElement.append(`<option disabled>No results matched "${keyword}"</option>`);
+            selectElement.selectpicker('refresh');
+        } else {
+            $.each(locations, function (index, location) {
+                var option = `<option class="border-bottom border-color-1" value="${location.objectID}" data-content='
+                                  <span class="d-flex align-items-center">
+                                      <span class="font-size-16">${location.objectID} - ${location.name}</span>
+                                  </span>'>
+                                  ${location.objectID} - ${location.name}
+                              </option>`;
+                selectElement.append(option);
+            });
+        }
+
+        selectElement.selectpicker('refresh');
+    });
+}
 // Debounce function to delay the search
 function debounce(func, delay) {
     var timeoutId;
@@ -742,14 +831,18 @@ function debounce(func, delay) {
 $('.js-select').on('show.bs.select', function (e) {
     var searchBox = $(this).parent().find('.bs-searchbox input');
     var selectElement = $(this);
+    if (searchBox.val() === '' && selectElement.children().length == 1){
+        populateDefaultAirports(selectElement);
+    }
+    
     var debouncedSearch = debounce(function () {
         selectElement.empty();
         selectElement.append('<option disabled>Loading...</option>');
         selectElement.selectpicker('refresh');
         var keyword = searchBox.val();
             populateLocations(selectElement, keyword);
-    }, 500);
-
+    }, 1000);
+    
     searchBox.on('input', debouncedSearch);
 });
 

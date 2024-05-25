@@ -908,13 +908,15 @@ function handleGeolocationError(error) {
    updateDestinationUrls('JFK'); // Use JFK as the default if geolocation is denied or fails
 }
 
-// Check if geolocation is supported by the browser
-if ("geolocation" in navigator) {
-   navigator.geolocation.getCurrentPosition(handleGeolocationSuccess, handleGeolocationError);
-} else {
-   console.warn('Geolocation is not supported by this browser.');
-   updateDestinationUrls('JFK'); // Use JFK as the default if geolocation is not supported
-}
+// // Check if geolocation is supported by the browser
+// if ("geolocation" in navigator) {
+//    navigator.geolocation.getCurrentPosition(handleGeolocationSuccess, handleGeolocationError);
+// } else {
+//    console.warn('Geolocation is not supported by this browser.');
+//    updateDestinationUrls('JFK'); // Use JFK as the default if geolocation is not supported
+// }
+updateDestinationUrls('JFK'); // Use JFK as the default if geolocation is not supported
+
 </script>
       
    </body>

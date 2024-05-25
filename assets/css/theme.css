@@ -6810,6 +6810,8 @@ input[type="button"].btn-block {
 
 .dropdown-menu.show {
   display: block;
+  max-width: -webkit-fill-available;
+  left: -30px !important;
 }
 
 .dropdown-header {
@@ -34911,7 +34913,7 @@ label.btn {
 }
 
 .tab-dropdown .dropdown-menu li {
-  margin: 0 2rem;
+  /* margin: 0 2rem; */
 }
 
 .tab-dropdown .dropdown-menu a {

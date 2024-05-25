@@ -1,10 +1,12 @@
 import json
-main=[]
-data=dict(json.load(open('airports.json')))
-for key,value in data.items():
-    if value['iata']!="":
-        value['objectID']=value['iata']
-        main.append(value)
+main={}
+data=json.load(open('airlines.json'))
+for airline in data:
+    if (airline['icao'] != 'N/A' and airline['iata'] != 'N/A'
+            and airline['iata'] != '-' and airline['icao'] != '-'
+            and airline['iata'] != '' and airline['icao'] != ''
+            and airline['iata'] != '\\N' and airline['icao'] != '\\N'):
+        main[airline['iata']]=airline['icao']
 
-with open('airports_filtered.json','w') as f:
+with open('airline_codes.json','w') as f:
     json.dump(main,f,indent=4)

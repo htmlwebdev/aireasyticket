@@ -40,13 +40,16 @@
       <link rel="stylesheet" href="assets/css/theme.css">
       <script>
          var departureLocation = null;
+         var departureData = null;
          var arrivalLocation = null;
+         var arrivalData = null;
          var departureDate = null;
          var returnDate = null;
          var oneWay = null;
          var allFlights = null;
          var flightsDictionaries = null;
          var airlineData = null;
+         var airportData = null;
          function fetchJSONData() {
             fetch("./airline_codes.json")
                 .then((res) => {
@@ -57,11 +60,25 @@
                     return res.json();
                 })
                 .then((data) => {
-                    console.log(data);
                     airlineData = data;}
                       )
                 .catch((error) => 
                        console.error("Unable to fetch data:", error));
+
+            fetch("./airports_shortened.json")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error
+                            (`HTTP error! Status: ${res.status}`);
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    airportData = data;}
+                      )
+                .catch((error) => 
+                       console.error("Unable to fetch data:", error));
+                       
         }
         fetchJSONData();
         
@@ -70,6 +87,33 @@
          .inner.show {
          margin: 0 1em;
          }
+
+         .layover-tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.layover-tooltip .layover-tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.layover-tooltip:hover .layover-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
       </style>
    </head>
    <body>
@@ -393,7 +437,7 @@
                                  </div>
                                  <div>
                                     <div class="mb-2 h6 font-weight-normal text-gray-1">Got Questions ? Call us 24/7!</div>
-                                    <small class="d-block font-size-18 font-weight-normal text-primary">Call Us: <span class="text-primary font-weight-semi-bold">1 (833) 844- 0966</span></small>
+                                    <small class="d-block font-size-18 font-weight-normal text-primary">Call Us: <br><span class="text-primary font-weight-semi-bold">1 (833) 844- 0966</span></small>
                                  </div>
                               </div>
                            </a>
@@ -407,28 +451,6 @@
                                  </span>
                               </address>
                            </div>
-                           <ul class="list-inline mb-0">
-                              <li class="list-inline-item mr-2">
-                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
-                                 <span class="fab fa-facebook-f btn-icon__inner"></span>
-                                 </a>
-                              </li>
-                              <li class="list-inline-item mr-2">
-                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
-                                 <span class="fab fa-twitter btn-icon__inner"></span>
-                                 </a>
-                              </li>
-                              <li class="list-inline-item mr-2">
-                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
-                                 <span class="fab fa-instagram btn-icon__inner"></span>
-                                 </a>
-                              </li>
-                              <li class="list-inline-item mr-2">
-                                 <a class="btn btn-icon btn-social btn-bg-transparent" href="#">
-                                 <span class="fab fa-linkedin-in btn-icon__inner"></span>
-                                 </a>
-                              </li>
-                           </ul>
                         </div>
                      </div>
                      <!-- End Contacts -->
@@ -634,23 +656,8 @@
          if (oneWay) {
              departureLocation = urlParams.get('depart1');
              arrivalLocation = urlParams.get('arrive1');
-                var selectedDeparture = $('select[name="depart1"]')
-                selectedDeparture.append(`<option class="border-bottom border-color-1" selected value="${departureLocation}" data-content='
-                                      <span class="d-flex align-items-center">
-                                          <span class="font-size-16">${departureLocation}</span>
-                                      </span>'>
-                                      ${departureLocation}
-                                  </option>`);
-                selectedDeparture.selectpicker('refresh');
-
-                var selectedArrival = $('select[name="arrive1"]')
-                selectedArrival.append(`<option class="border-bottom border-color-1" selected value="${arrivalLocation}" data-content='
-                                      <span class="d-flex align-items-center">
-                                          <span class="font-size-16">${arrivalLocation}</span>
-                                      </span>'>
-                                      ${arrivalLocation}
-                                  </option>`);
-                selectedArrival.selectpicker('refresh');
+             var selectedDeparture = $('select[name="depart1"]')
+             var selectedArrival = $('select[name="arrive1"]')
 
              $('.js-range-datepicker[data-rp-wrapper="#datepickerWrapperFromtwo"]').each(function () {
              $(this).flatpickr({
@@ -667,24 +674,8 @@
          else {
              departureLocation = urlParams.get('depart2');
              arrivalLocation = urlParams.get('arrive2');
-
              var selectedDeparture = $('select[name="depart2"]')
-             selectedDeparture.append(`<option class="border-bottom border-color-1" selected value="${departureLocation}" data-content='
-                                   <span class="d-flex align-items-center">
-                                       <span class="font-size-16">${departureLocation}</span>
-                                   </span>'>
-                                   ${departureLocation}
-                               </option>`);
-            selectedDeparture.selectpicker('refresh');
-
-            var selectedArrival = $('select[name="arrive2"]')
-            selectedArrival.append(`<option class="border-bottom border-color-1" selected value="${arrivalLocation}" data-content='
-                                  <span class="d-flex align-items-center">
-                                      <span class="font-size-16">${arrivalLocation}</span>
-                                  </span>'>
-                                  ${arrivalLocation}
-                              </option>`);
-              selectedArrival.selectpicker('refresh');            
+             var selectedArrival = $('select[name="arrive2"]')          
              departureDate = urlParams.get('depart-return-date').split('to')[0];
              returnDate = urlParams.get('depart-return-date').split('to ')[1];
              $('.js-range-datepicker[data-rp-wrapper="#datepickerWrapperFromOne"]').each(function () {
@@ -698,13 +689,31 @@
                  });
              });
              $('#pills-two-example2-tab').tab('show');
-         
          }
          console.log(departureLocation);
          console.log(arrivalLocation);
          console.log(departureDate);
          console.log(returnDate);
-         
+         departureData = airportData[departureLocation];
+            arrivalData = airportData[arrivalLocation];
+            selectedDeparture.append(`<option class="border-bottom border-color-1" selected value="${departureLocation}" data-content='
+                        <span class="d-flex align-items-center">
+                            <span class="font-size-16">${departureLocation} - ${departureData.name}</span>
+                        </span>'>
+                        ${departureLocation} - ${departureData.name}
+                    </option>`);
+            selectedDeparture.selectpicker('refresh');
+
+            selectedArrival.append(`<option class="border-bottom border-color-1" selected value="${arrivalLocation}" data-content='
+                        <span class="d-flex align-items-center">
+                            <span class="font-size-16">${arrivalLocation} - ${arrivalData.name}</span>
+                        </span>'>
+                        ${arrivalLocation} - ${arrivalData.name}
+                    </option>`);
+            selectedArrival.selectpicker('refresh');
+
+
+
          fetchFlightData(function (response) {
          flightsDictionaries = response.dictionaries;
          allFlights = response.data;
@@ -805,169 +814,176 @@
          }
          // Function to display flight results
          function displayFlightResults(flights) {
-    var flightList = $('#flight-result-list');
-    flightList.empty();
-    if (flights.length === 0) {
-        flightList.append('<p>No flights found.</p>');
-    } else {
-        flights.forEach(function (flight) {
-            var flightHtml = `
-                <div class="mb-5">
-                    <div class="hover-bg-gray-1 border rounded-xs py-4 px-4 px-xl-5">
-                        <div class="row align-items-center text-center">
-                            <div class="col-md-1 mb-md-0"><img class="img-fluid" src="assets/airline_logos/${airlineData[flight.validatingAirlineCodes[0]]}.png"></div>
-                                <div class="col-md-8">
-                                    <div class="row">
-                                        <div class="col-md mb-4 mb-md-0">
-                                            <div class="flex-content-center d-block d-lg-flex">
-                                                <div class="text-lg-left">
-                                                    <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[0].departure.at)}</h6>
-                                                    <span class="font-size-12 text-gray-1">${flight.itineraries[0].segments[0].departure.iataCode}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md mb-4 mb-md-0">
-                                            <div class="flex-content-center flex-column">
-                                                <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[0].duration)}</h6>
-                                                <div class="width-60 border-top border-primary border-width-2 my-1"></div>
-                                                <div class="font-size-12 text-gray-1">${flight.itineraries[0].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[0].segments.length - 1 + " Stop"}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md mb-4 mb-md-0">
-                                            <div class="flex-content-center d-block d-lg-flex">
-                                                <div class="text-lg-left">
-                                                    <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.at)}</h6>
-                                                    <span class="font-size-12 text-gray-1">${flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.iataCode}</span>
-                                                </div>
-                                            </div>
-                                        </div>`;
+            var flightList = $('#flight-result-list');
+            flightList.empty();
+            if (flights.length === 0) {
+                flightList.append('<p>No flights found.</p>');
+            } else {
+                flights.forEach(function (flight) {
+                    airlineLogo=airlineData[flight.validatingAirlineCodes[0]]!=undefined?airlineData[flight.validatingAirlineCodes[0]]:"default";
+                    if (airlineLogo==undefined){
 
-                        if (!oneWay) {
-                            flightHtml += `
-                                        <div class="col-12">
-                                            <hr class="border-color-1">
-                                        </div>
-                                        <div class="col-md mb-4 mb-md-0">
-                                            <div class="flex-content-center d-block d-lg-flex">
-                                                <div class="text-lg-left">
-                                                    <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[0].departure.at)}</h6>
-                                                    <span class="font-size-12 text-gray-1">${flight.itineraries[1].segments[0].departure.iataCode}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md mb-4 mb-md-0">
-                                            <div class="flex-content-center flex-column">
-                                                <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[1].duration)}</h6>
-                                                <div class="width-60 border-top border-primary border-width-2 my-1"></div>
-                                                <div class="font-size-12 text-gray-1">${flight.itineraries[1].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[1].segments.length - 1 + " Stop"}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md mb-4 mb-md-0">
-                                            <div class="flex-content-center d-block d-lg-flex">
-                                                <div class="text-lg-left">
-                                                    <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.at)}</h6>
-                                                    <span class="font-size-12 text-gray-1">${flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.iataCode}</span>
-                                                </div>
-                                            </div>
-                                        </div>`;
-                }
-
-                    flightHtml += `</div>
-                                </div>
-                            <div class="col-md-2gdot8">
-                                <div class="border-xl-left">
-                                    <div class="ml-xl-5">
-                                        <div class="mb-2">
-                                            <div class="mb-2 text-lh-1dot4">
-                                                <span class="font-weight-bold font-size-22">$${flight.price.total}</span>
-                                            </div>
-                                            <a href="tel:18338440966" class="btn btn-outline-primary border-radius-3 d-flex align-items-center justify-content-center min-height-50 font-weight-bold border-width-2 py-2 w-100">Book Now</a>
-                                        </div>
-                                        <!-- On Target Modal -->
-                                        <a class="font-size-12 text-gray-1 d-block" href="#ontargetModal_${flight.id}"
-                                            data-modal-target="#ontargetModal_${flight.id}"
-                                            data-modal-effect="fadein">
-                                            Flight Details
-                                        </a>
-                                        <div id="ontargetModal_${flight.id}" class="js-modal-window u-modal-window"
-                                            data-modal-type="ontarget"
-                                            data-open-effect="fadeIn"
-                                            data-close-effect="fadeOut"
-                                            data-speed="500">
-                                            <div class="card mx-4 mx-xl-0 mb-4 mb-md-0">
-                                                <button type="button" class="border-0 width-50 height-50 bg-primary flex-content-center position-absolute rounded-circle mt-n4 mr-n4 top-0 right-0" aria-label="Close" onclick="Custombox.modal.close();">
-                                                    <i aria-hidden="true" class="flaticon-close text-white font-size-12"></i>
-                                                </button><!-- Body -->
-                                                    <div class="card-body py-4 p-md-5">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="mb-4">
-                                                                    <h5 class="font-weight-bold mb-3">Flight Information</h5>
-                                                                    <div class="d-flex align-items-center mb-2">
-                                                                        <i class="flaticon-aeroplane font-size-24 text-primary mr-2"></i>
-                                                                        <span class="font-weight-medium">${flightsDictionaries.carriers[flight.validatingAirlineCodes[0]]} ${flight.itineraries[0].segments[0].number}</span>
-                                                                    </div>
-                                                                    <div class="d-flex align-items-center mb-2">
-                                                                        <i class="flaticon-airplane font-size-24 text-primary mr-2"></i>
-                                                                        <span class="font-weight-medium">Aircraft: ${flightsDictionaries.aircraft[flight.itineraries[0].segments[0].aircraft.code]}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="mb-4">
-                                                                    <h5 class="font-weight-bold mb-3">Fare Details</h5>
-                                                                    <div class="d-flex align-items-center mb-2">
-                                                                        <i class="flaticon-ticket font-size-24 text-primary mr-2"></i>
-                                                                        <span class="font-weight-medium">Fare Type: ${flight.travelerPricings[0].fareOption}</span>
-                                                                    </div>
-                                                                    <div class="d-flex align-items-center mb-2">
-                                                                        <i class="flaticon-seat font-size-24 text-primary mr-2"></i>
-                                                                        <span class="font-weight-medium">Cabin: ${flight.travelerPricings[0].fareDetailsBySegment[0].cabin}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="mb-4">
-                                                                    <h5 class="font-weight-bold mb-3">Price Breakdown</h5>
-                                                                    <div class="d-flex justify-content-between mb-2">
-                                                                        <span class="font-weight-medium">Base Fare:</span>
-                                                                        <span>$${flight.price.base}</span>
-                                                                    </div>
-                                                                    <div class="d-flex justify-content-between mb-2">
-                                                                        <span class="font-weight-medium">Taxes & Fees:</span>
-                                                                        <span>$${(flight.price.total - flight.price.base).toFixed(2)}</span>
-                                                                    </div>
-                                                                    <div class="d-flex justify-content-between font-size-18 font-weight-bold">
-                                                                        <span>Total Price:</span>
-                                                                        <span>$${flight.price.total}</span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="mb-4">
-                                                                    <h5 class="font-weight-bold mb-3">Additional Information</h5>
-                                                                    <div class="d-flex align-items-center mb-2">
-                                                                        <i class="flaticon-refresh font-size-24 text-primary mr-2"></i>
-                                                                        <span class="font-weight-medium">Refundable: ${flight.travelerPricings[0].refundable ? 'Yes' : 'No'}</span>
-                                                                    </div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <i class="flaticon-calendar font-size-24 text-primary mr-2"></i>
-                                                                        <span class="font-weight-medium">Last Ticketing Date: ${flight.lastTicketingDate}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                    }
+                    var flightHtml = `
+                        <div class="mb-5">
+                            <div class="hover-bg-gray-1 border rounded-xs py-4 px-4 px-xl-5">
+                                <div class="row align-items-center text-center">
+                                    <div class="col-md-1 mb-md-0"><img class="img-fluid" src="assets/airline_logos/${airlineLogo}.png"></div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md mb-4 mb-md-0">
+                                                    <div class="flex-content-center d-block d-lg-flex">
+                                                        <div class="text-lg-left">
+                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[0].departure.at)}</h6>
+                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[0].segments[0].departure.iataCode].city}</span>
                                                         </div>
                                                     </div>
-                                                <!-- End Body -->
+                                                </div>
+                                                <div class="col-md mb-4 mb-md-0">
+                                                    <div class="flex-content-center flex-column">
+                                                        <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[0].duration)}</h6>
+                                                        <div class="width-60 border-top border-primary border-width-2 my-1"></div>
+                                                        <div class="font-size-12 text-gray-1">${flight.itineraries[0].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[0].segments.length - 1 + " Stop"}</div>
+                                                        ${flight.itineraries[0].segments.length > 1 ? `<div class="font-size-12 text-gray-1 layover-tooltip">Via ${flight.itineraries[0].segments.map(segment => airportData[segment.arrival.iataCode].city).slice(0, -1).join(', ')} <span class="layover-tooltip-text">${flight.itineraries[0].segments.slice(0, -1).map(segment => `Layover in ${airportData[segment.arrival.iataCode].city}: ${formatDuration(segment.duration)}`).join('<br>')}</span></div>` : ''}
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md mb-4 mb-md-0">
+                                                    <div class="flex-content-center d-block d-lg-flex">
+                                                        <div class="text-lg-left">
+                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.at)}</h6>
+                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.iataCode].city}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>`;
+
+                                if (!oneWay) {
+                                    flightHtml += `
+                                                <div class="col-12">
+                                                    <hr class="border-color-1">
+                                                </div>
+                                                <div class="col-md mb-4 mb-md-0">
+                                                    <div class="flex-content-center d-block d-lg-flex">
+                                                        <div class="text-lg-left">
+                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[0].departure.at)}</h6>
+                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[1].segments[0].departure.iataCode].city}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md mb-4 mb-md-0">
+                                                    <div class="flex-content-center flex-column">
+                                                        <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[1].duration)}</h6>
+                                                        <div class="width-60 border-top border-primary border-width-2 my-1"></div>
+                                                        <div class="font-size-12 text-gray-1">${flight.itineraries[1].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[1].segments.length - 1 + " Stop"}</div>
+                                                        ${flight.itineraries[1].segments.length > 1 ? `<div class="font-size-12 text-gray-1 layover-tooltip">Via ${flight.itineraries[1].segments.map(segment => airportData[segment.arrival.iataCode].city).slice(0, -1).join(', ')} <span class="layover-tooltip-text">${flight.itineraries[1].segments.slice(0, -1).map(segment => `Layover in ${airportData[segment.arrival.iataCode].city}: ${formatDuration(segment.duration)}`).join('<br>')}</span></div>` : ''}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md mb-4 mb-md-0">
+                                                    <div class="flex-content-center d-block d-lg-flex">
+                                                        <div class="text-lg-left">
+                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.at)}</h6>
+                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.iataCode].city}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>`;
+                        }
+
+                            flightHtml += `</div>
+                                        </div>
+                                    <div class="col-md-2gdot8">
+                                        <div class="border-xl-left">
+                                            <div class="ml-xl-5">
+                                                <div class="mb-2">
+                                                    <div class="mb-2 text-lh-1dot4">
+                                                        <span class="font-weight-bold font-size-22">$${flight.price.total}</span>
+                                                    </div>
+                                                    <a href="tel:18338440966" class="btn btn-outline-primary border-radius-3 d-flex align-items-center justify-content-center min-height-50 font-weight-bold border-width-2 py-2 w-100">Book Now</a>
+                                                </div>
+                                                <!-- On Target Modal -->
+                                                <a class="font-size-12 text-gray-1 d-block" href="#ontargetModal_${flight.id}"
+                                                    data-modal-target="#ontargetModal_${flight.id}"
+                                                    data-modal-effect="fadein">
+                                                    Flight Details
+                                                </a>
+                                                <div id="ontargetModal_${flight.id}" class="js-modal-window u-modal-window"
+                                                    data-modal-type="ontarget"
+                                                    data-open-effect="fadeIn"
+                                                    data-close-effect="fadeOut"
+                                                    data-speed="500">
+                                                    <div class="card mx-4 mx-xl-0 mb-4 mb-md-0">
+                                                        <button type="button" class="border-0 width-50 height-50 bg-primary flex-content-center position-absolute rounded-circle mt-n4 mr-n4 top-0 right-0" aria-label="Close" onclick="Custombox.modal.close();">
+                                                            <i aria-hidden="true" class="flaticon-close text-white font-size-12"></i>
+                                                        </button><!-- Body -->
+                                                            <div class="card-body py-4 p-md-5">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="mb-4">
+                                                                            <h5 class="font-weight-bold mb-3">Flight Information</h5>
+                                                                            <div class="d-flex align-items-center mb-2">
+                                                                                <i class="flaticon-aeroplane font-size-24 text-primary mr-2"></i>
+                                                                                <span class="font-weight-medium">${flightsDictionaries.carriers[flight.validatingAirlineCodes[0]]} ${flight.itineraries[0].segments[0].number}</span>
+                                                                            </div>
+                                                                            <div class="d-flex align-items-center mb-2">
+                                                                                <i class="flaticon-airplane font-size-24 text-primary mr-2"></i>
+                                                                                <span class="font-weight-medium">Aircraft: ${flightsDictionaries.aircraft[flight.itineraries[0].segments[0].aircraft.code]}</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="mb-4">
+                                                                            <h5 class="font-weight-bold mb-3">Fare Details</h5>
+                                                                            <div class="d-flex align-items-center mb-2">
+                                                                                <i class="flaticon-ticket font-size-24 text-primary mr-2"></i>
+                                                                                <span class="font-weight-medium">Fare Type: ${flight.travelerPricings[0].fareOption}</span>
+                                                                            </div>
+                                                                            <div class="d-flex align-items-center mb-2">
+                                                                                <i class="flaticon-seat font-size-24 text-primary mr-2"></i>
+                                                                                <span class="font-weight-medium">Cabin: ${flight.travelerPricings[0].fareDetailsBySegment[0].cabin}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="mb-4">
+                                                                            <h5 class="font-weight-bold mb-3">Price Breakdown</h5>
+                                                                            <div class="d-flex justify-content-between mb-2">
+                                                                                <span class="font-weight-medium">Base Fare:</span>
+                                                                                <span>$${flight.price.base}</span>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between mb-2">
+                                                                                <span class="font-weight-medium">Taxes & Fees:</span>
+                                                                                <span>$${(flight.price.total - flight.price.base).toFixed(2)}</span>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between font-size-18 font-weight-bold">
+                                                                                <span>Total Price:</span>
+                                                                                <span>$${flight.price.total}</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="mb-4">
+                                                                            <h5 class="font-weight-bold mb-3">Additional Information</h5>
+                                                                            <div class="d-flex align-items-center mb-2">
+                                                                                <i class="flaticon-refresh font-size-24 text-primary mr-2"></i>
+                                                                                <span class="font-weight-medium">Refundable: ${flight.travelerPricings[0].refundable ? 'Yes' : 'No'}</span>
+                                                                            </div>
+                                                                            <div class="d-flex align-items-center">
+                                                                                <i class="flaticon-calendar font-size-24 text-primary mr-2"></i>
+                                                                                <span class="font-weight-medium">Last Ticketing Date: ${flight.lastTicketingDate}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <!-- End Body -->
+                                                    </div>
+                                                </div>
+                                                <!-- End On Target Modal -->
                                             </div>
                                         </div>
-                                        <!-- End On Target Modal -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            `;
-
+                    `;
+                    
             flightList.append(flightHtml);
         });
     }
@@ -979,11 +995,13 @@
     });
 }
 
-
          function generateFilters(flights) {
          var minPrice = Math.min(...flights.map(flight => parseFloat(flight.price.total)));
          var maxPrice = Math.max(...flights.map(flight => parseFloat(flight.price.total)));
-         
+         if (minPrice === Infinity || maxPrice === -Infinity) {
+             minPrice = 0;
+             maxPrice = 0;
+         }
          // Extract stops information from flight data
          var stops = [...new Set(flights.map(flight => flight.itineraries[0].segments.length - 1))];
          
@@ -993,12 +1011,15 @@
          // Extract flight type information from flight data
          var flightTypes = [...new Set(flights.map(flight => flight.travelerPricings[0].fareOption))];
          
+
          // Update price range slider
          $('.js-range-slider').data('from', minPrice);
          $('.js-range-slider').data('to', maxPrice);
          $('.js-range-slider').data('min', minPrice);
          $('.js-range-slider').data('max', maxPrice);
-         
+         console.log(minPrice);
+            console.log(maxPrice);
+
          // Initialize price range slider
 
         $.HSCore.components.HSRangeSlider.init('.js-range-slider');
@@ -1174,7 +1195,7 @@
          $('.js-select').on('show.bs.select', function (e) {
          var searchBox = $(this).parent().find('.bs-searchbox input');
          var selectElement = $(this);
-         if (searchBox.val() === '' && selectElement.children().length <= 2){
+         if (searchBox.val() === '' && selectElement.children().length == 1){
          populateDefaultAirports(selectElement);
          }
          

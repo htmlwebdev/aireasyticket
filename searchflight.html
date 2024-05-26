@@ -67,24 +67,6 @@
 
 
          function fetchJSONData() {
-            fetch("./airports_shortened.json")
-                .then((res) => {
-                    if (!res.ok) {
-                        throw new Error
-                            (`HTTP error! Status: ${res.status}`);
-                    }
-                    return res.json();
-                })
-                .then((data) => {
-                    airportData = data;
-                    departureData = airportData[departureLocation];
-                    arrivalData = airportData[arrivalLocation];
-                
-                }
-                      )
-                .catch((error) => 
-                       console.error("Unable to fetch data:", error));
-                       
                 fetch("./airline_codes.json")
                 .then((res) => {
                     if (!res.ok) {
@@ -700,22 +682,40 @@
          console.log(arrivalLocation);
          console.log(departureDate);
          console.log(returnDate);
-
-            selectedDeparture.append(`<option class="border-bottom border-color-1" selected value="${departureLocation}" data-content='
+         fetch("./airports_shortened.json")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error
+                            (`HTTP error! Status: ${res.status}`);
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    airportData = data;
+                    departureData = airportData[departureLocation];
+                    arrivalData = airportData[arrivalLocation];
+                    selectedDeparture.append(`<option class="border-bottom border-color-1" selected value="${departureLocation}" data-content='
                         <span class="d-flex align-items-center">
                             <span class="font-size-16">${departureLocation} - ${departureData.name}</span>
                         </span>'>
                         ${departureLocation} - ${departureData.name}
                     </option>`);
-            selectedDeparture.selectpicker('refresh');
+                    selectedDeparture.selectpicker('refresh');
 
-            selectedArrival.append(`<option class="border-bottom border-color-1" selected value="${arrivalLocation}" data-content='
-                        <span class="d-flex align-items-center">
-                            <span class="font-size-16">${arrivalLocation} - ${arrivalData.name}</span>
-                        </span>'>
-                        ${arrivalLocation} - ${arrivalData.name}
-                    </option>`);
-            selectedArrival.selectpicker('refresh');
+                    selectedArrival.append(`<option class="border-bottom border-color-1" selected value="${arrivalLocation}" data-content='
+                                <span class="d-flex align-items-center">
+                                    <span class="font-size-16">${arrivalLocation} - ${arrivalData.name}</span>
+                                </span>'>
+                                ${arrivalLocation} - ${arrivalData.name}
+                            </option>`);
+                    selectedArrival.selectpicker('refresh');
+
+                }
+                      )
+                .catch((error) => 
+                       console.error("Unable to fetch data:", error));
+                       
+
 
 
 

@@ -821,38 +821,37 @@
             } else {
                 flights.forEach(function (flight) {
                     airlineLogo=airlineData[flight.validatingAirlineCodes[0]]!=undefined?airlineData[flight.validatingAirlineCodes[0]]:"default";
-                    if (airlineLogo==undefined){
-
-                    }
                     var flightHtml = `
                         <div class="mb-5">
                             <div class="hover-bg-gray-1 border rounded-xs py-4 px-4 px-xl-5">
                                 <div class="row align-items-center text-center">
-                                    <div class="col-md-1 mb-md-0"><img class="img-fluid" src="assets/airline_logos/${airlineLogo}.png"></div>
+                                    <div class="col-md-1 mb-md-0"><img class="img-fluid mb-4" src="assets/airline_logos/${airlineLogo}.png"></div>
                                         <div class="col-md-8">
-                                            <div class="row">
-                                                <div class="col-md mb-4 mb-md-0">
-                                                    <div class="flex-content-center d-block d-lg-flex">
-                                                        <div class="text-lg-left">
-                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[0].departure.at)}</h6>
-                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[0].segments[0].departure.iataCode].city}</span>
+                                            <div class = "row" style="display:block">
+                                                <div class="row" style="flex-wrap:nowrap">
+                                                    <div class="col-md mb-4 mb-md-0">
+                                                        <div class="flex-content-center d-block d-lg-flex">
+                                                            <div class="text-lg-left">
+                                                                <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[0].departure.at)}</h6>
+                                                                <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[0].segments[0].departure.iataCode].city}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md mb-4 mb-md-0">
-                                                    <div class="flex-content-center flex-column">
-                                                        <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[0].duration)}</h6>
-                                                        <div class="width-60 border-top border-primary border-width-2 my-1"></div>
-                                                        <div class="font-size-12 text-gray-1">${flight.itineraries[0].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[0].segments.length - 1 + " Stop"}</div>
-                                                        ${flight.itineraries[0].segments.length > 1 ? `<div class="font-size-12 text-gray-1 layover-tooltip">Via ${flight.itineraries[0].segments.map(segment => airportData[segment.arrival.iataCode].city).slice(0, -1).join(', ')} <span class="layover-tooltip-text">${flight.itineraries[0].segments.slice(0, -1).map(segment => `Layover in ${airportData[segment.arrival.iataCode].city}: ${formatDuration(segment.duration)}`).join('<br>')}</span></div>` : ''}
+                                                    <div class="col-md mb-4 mb-md-0">
+                                                        <div class="flex-content-center flex-column">
+                                                            <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[0].duration)}</h6>
+                                                            <div class="width-60 border-top border-primary border-width-2 my-1"></div>
+                                                            <div class="font-size-12 text-gray-1">${flight.itineraries[0].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[0].segments.length - 1 + " Stop"}</div>
+                                                            ${flight.itineraries[0].segments.length > 1 ? `<div class="font-size-12 text-gray-1 layover-tooltip">Via ${flight.itineraries[0].segments.map(segment => airportData[segment.arrival.iataCode].city).slice(0, -1).join(', ')} <span class="layover-tooltip-text">${flight.itineraries[0].segments.slice(0, -1).map(segment => `Layover in ${airportData[segment.arrival.iataCode].city}: ${formatDuration(segment.duration)}`).join('<br>')}</span></div>` : ''}
 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md mb-4 mb-md-0">
-                                                    <div class="flex-content-center d-block d-lg-flex">
-                                                        <div class="text-lg-left">
-                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.at)}</h6>
-                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.iataCode].city}</span>
+                                                    <div class="col-md mb-4 mb-md-0">
+                                                        <div class="flex-content-center d-block d-lg-flex">
+                                                            <div class="text-lg-left">
+                                                                <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.at)}</h6>
+                                                                <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[0].segments[flight.itineraries[0].segments.length - 1].arrival.iataCode].city}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>`;
@@ -862,27 +861,29 @@
                                                 <div class="col-12">
                                                     <hr class="border-color-1">
                                                 </div>
-                                                <div class="col-md mb-4 mb-md-0">
-                                                    <div class="flex-content-center d-block d-lg-flex">
-                                                        <div class="text-lg-left">
-                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[0].departure.at)}</h6>
-                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[1].segments[0].departure.iataCode].city}</span>
+                                                <div class="row" style="flex-wrap:nowrap">
+                                                    <div class="col-md mb-4 mb-md-0">
+                                                        <div class="flex-content-center d-block d-lg-flex">
+                                                            <div class="text-lg-left">
+                                                                <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[0].departure.at)}</h6>
+                                                                <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[1].segments[0].departure.iataCode].city}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md mb-4 mb-md-0">
-                                                    <div class="flex-content-center flex-column">
-                                                        <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[1].duration)}</h6>
-                                                        <div class="width-60 border-top border-primary border-width-2 my-1"></div>
-                                                        <div class="font-size-12 text-gray-1">${flight.itineraries[1].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[1].segments.length - 1 + " Stop"}</div>
-                                                        ${flight.itineraries[1].segments.length > 1 ? `<div class="font-size-12 text-gray-1 layover-tooltip">Via ${flight.itineraries[1].segments.map(segment => airportData[segment.arrival.iataCode].city).slice(0, -1).join(', ')} <span class="layover-tooltip-text">${flight.itineraries[1].segments.slice(0, -1).map(segment => `Layover in ${airportData[segment.arrival.iataCode].city}: ${formatDuration(segment.duration)}`).join('<br>')}</span></div>` : ''}
+                                                    <div class="col-md mb-4 mb-md-0">
+                                                        <div class="flex-content-center flex-column">
+                                                            <h6 class="font-size-12 font-weight-bold text-gray-5 mb-0">${formatDuration(flight.itineraries[1].duration)}</h6>
+                                                            <div class="width-60 border-top border-primary border-width-2 my-1"></div>
+                                                            <div class="font-size-12 text-gray-1">${flight.itineraries[1].segments.length - 1 === 0 ? "Non stop" : flight.itineraries[1].segments.length - 1 + " Stop"}</div>
+                                                            ${flight.itineraries[1].segments.length > 1 ? `<div class="font-size-12 text-gray-1 layover-tooltip">Via ${flight.itineraries[1].segments.map(segment => airportData[segment.arrival.iataCode].city).slice(0, -1).join(', ')} <span class="layover-tooltip-text">${flight.itineraries[1].segments.slice(0, -1).map(segment => `Layover in ${airportData[segment.arrival.iataCode].city}: ${formatDuration(segment.duration)}`).join('<br>')}</span></div>` : ''}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md mb-4 mb-md-0">
-                                                    <div class="flex-content-center d-block d-lg-flex">
-                                                        <div class="text-lg-left">
-                                                            <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.at)}</h6>
-                                                            <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.iataCode].city}</span>
+                                                    <div class="col-md mb-4 mb-md-0">
+                                                        <div class="flex-content-center d-block d-lg-flex">
+                                                            <div class="text-lg-left">
+                                                                <h6 class="font-weight-bold font-size-15 text-gray-5 mb-0">${formatDateTime(flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.at)}</h6>
+                                                                <span class="font-size-12 text-gray-1">${airportData[flight.itineraries[1].segments[flight.itineraries[1].segments.length - 1].arrival.iataCode].city}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>`;

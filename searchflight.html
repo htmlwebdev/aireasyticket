@@ -43,15 +43,49 @@
          var departureData = null;
          var arrivalLocation = null;
          var arrivalData = null;
-         var departureDate = null;
-         var returnDate = null;
-         var oneWay = null;
          var allFlights = null;
          var flightsDictionaries = null;
          var airlineData = null;
          var airportData = null;
+
+        // Parse the URL to get the search parameters
+         var urlParams = new URLSearchParams(window.location.search);
+         var departureDate = urlParams.get('depart-date');
+         var returnDate = urlParams.get('depart-return-date');
+         // check if the user is searching for a one-way or return flight
+         var oneWay = departureDate !== null && returnDate === null;
+         if (oneWay) {
+             departureLocation = urlParams.get('depart1');
+             arrivalLocation = urlParams.get('arrive1');
+         }
+         else {
+             departureLocation = urlParams.get('depart2');
+             arrivalLocation = urlParams.get('arrive2');       
+             departureDate = urlParams.get('depart-return-date').split('to')[0];
+             returnDate = urlParams.get('depart-return-date').split('to ')[1];
+         }
+
+
          function fetchJSONData() {
-            fetch("./airline_codes.json")
+            fetch("./airports_shortened.json")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error
+                            (`HTTP error! Status: ${res.status}`);
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    airportData = data;
+                    departureData = airportData[departureLocation];
+                    arrivalData = airportData[arrivalLocation];
+                
+                }
+                      )
+                .catch((error) => 
+                       console.error("Unable to fetch data:", error));
+                       
+                fetch("./airline_codes.json")
                 .then((res) => {
                     if (!res.ok) {
                         throw new Error
@@ -65,20 +99,6 @@
                 .catch((error) => 
                        console.error("Unable to fetch data:", error));
 
-            fetch("./airports_shortened.json")
-                .then((res) => {
-                    if (!res.ok) {
-                        throw new Error
-                            (`HTTP error! Status: ${res.status}`);
-                    }
-                    return res.json();
-                })
-                .then((data) => {
-                    airportData = data;}
-                      )
-                .catch((error) => 
-                       console.error("Unable to fetch data:", error));
-                       
         }
         fetchJSONData();
         
@@ -644,18 +664,8 @@
             this.submit();
          });
          
-         
-         
-                      // Parse the URL to get the search parameters
-         var urlParams = new URLSearchParams(window.location.search);
-         departureDate = urlParams.get('depart-date');
-         returnDate = urlParams.get('depart-return-date');
-         // check if the user is searching for a one-way or return flight
-         oneWay = departureDate !== null && returnDate === null;
-         console.log(oneWay);
+        
          if (oneWay) {
-             departureLocation = urlParams.get('depart1');
-             arrivalLocation = urlParams.get('arrive1');
              var selectedDeparture = $('select[name="depart1"]')
              var selectedArrival = $('select[name="arrive1"]')
 
@@ -672,12 +682,8 @@
          });
          }
          else {
-             departureLocation = urlParams.get('depart2');
-             arrivalLocation = urlParams.get('arrive2');
              var selectedDeparture = $('select[name="depart2"]')
              var selectedArrival = $('select[name="arrive2"]')          
-             departureDate = urlParams.get('depart-return-date').split('to')[0];
-             returnDate = urlParams.get('depart-return-date').split('to ')[1];
              $('.js-range-datepicker[data-rp-wrapper="#datepickerWrapperFromOne"]').each(function () {
              $(this).flatpickr({
                  mode: 'range',
@@ -694,8 +700,7 @@
          console.log(arrivalLocation);
          console.log(departureDate);
          console.log(returnDate);
-         departureData = airportData[departureLocation];
-            arrivalData = airportData[arrivalLocation];
+
             selectedDeparture.append(`<option class="border-bottom border-color-1" selected value="${departureLocation}" data-content='
                         <span class="d-flex align-items-center">
                             <span class="font-size-16">${departureLocation} - ${departureData.name}</span>
@@ -727,6 +732,8 @@
          });
          
          
+
+
           });
          
          

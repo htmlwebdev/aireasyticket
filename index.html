@@ -662,19 +662,7 @@
          });
 
 
-// Helper function to format the date in "MMM D / YYYY" format
-function formatDate(date) {
-    var monthNames = [
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-    ];
 
-    var monthIndex = date.getMonth();
-    var day = date.getDate();
-    var year = date.getFullYear();
-
-    return monthNames[monthIndex] + ' ' + day + ' / ' + year;
-}
 
 
          $(window).on('load', function () {
@@ -834,10 +822,11 @@ function formatDate(date) {
          ];
          
          var monthIndex = date.getMonth();
-         var day = date.getDate();
+         var day = date.getDate().toString().padStart(2, '0');
          var year = date.getFullYear();
          
          return day+ '+'+ monthNames[monthIndex] +'+' + year;
+
          }
 
 // Function to update the destination URLs

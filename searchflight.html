@@ -745,7 +745,7 @@
          ];
          
          var monthIndex = date.getMonth();
-         var day = date.getDate();
+         var day = date.getDate().toString().padStart(2, '0');
          var year = date.getFullYear();
          
          return day+ ' '+ monthNames[monthIndex] +' ' + year;

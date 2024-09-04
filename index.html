@@ -114,7 +114,7 @@
                            <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="contact.html" aria-haspopup="true" aria-expanded="false">Contact</a>
                         </li>
                         <li class="nav-item  u-header__nav-item btn-bg-transparent" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="tel:18338440966" aria-haspopup="true" aria-expanded="false">Call Us</a>
+                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border phone-number" href="tel:" aria-haspopup="true" aria-expanded="false">Call Now for Best Offer</a>
                         </li>
                      </ul>
                   </div>
@@ -211,7 +211,12 @@
                                         <!-- End Input -->
                                     </div>
                                     <div class="col-sm-12 col-lg-1dot8 text-left align-self-lg-end">
-                                       <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover"><i class="flaticon-magnifying-glass mr-2"></i>Search</button>
+                                       <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover mt-2">
+                                          <i class="flaticon-magnifying-glass mr-2"></i>Search
+                                       </button>
+                                       <a href="tel:" style="height: auto;" class="btn btn-outline-primary border-radius-2 font-weight-bold btn-md transition-3d-hover mt-2 phone-number">
+                                          <i class="flaticon-phone-call mr-2"></i>Call to compare prices
+                                       </a>
                                     </div>
                                  </div>
                                  <!-- End Checkbox -->
@@ -263,9 +268,15 @@
                                           </div>
                                           <!-- End Input -->
                                       </div>
+
                                       <div class="col-sm-12 col-lg-1dot8 text-left align-self-lg-end">
-                                         <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover"><i class="flaticon-magnifying-glass mr-2"></i>Search</button>
-                                      </div>
+                                       <button type="submit" class="btn btn-primary text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover mt-2">
+                                          <i class="flaticon-magnifying-glass mr-2"></i>Search
+                                       </button>
+                                       <a href="tel:" style="height: auto;" class="btn btn-outline-primary border-radius-2 font-weight-bold btn-md transition-3d-hover mt-2 phone-number">
+                                          <i class="flaticon-phone-call mr-2"></i>Call to compare prices
+                                       </a>
+                                    </div>
                                    </div>
                                    <!-- End Checkbox -->
                                 </form>
@@ -451,14 +462,14 @@
                      <div class="d-md-flex d-lg-block">
                         <div class="mb-5 mr-md-7 mr-lg-0">
                            <h4 class="h6 mb-4 font-weight-bold">Need AirEasyTicket Help?</h4>
-                           <a href="tel:18338440966">
+                           <a href="tel:" class="phone-number">
                               <div class="d-flex align-items-center">
                                  <div class="mr-4">
                                     <img src="logo-circle.png" alt="AirEasyTicket Help Icon">
                                  </div>
                                  <div>
                                     <div class="mb-2 h6 font-weight-normal text-gray-1">Got Questions ? Call us 24/7!</div>
-                                    <small class="d-block font-size-18 font-weight-normal text-primary">Call Us: <br><span class="text-primary font-weight-semi-bold">1 (833) 844- 0966</span></small>
+                                    <small class="d-block font-size-18 font-weight-normal text-primary">Call Us: <br><span class="text-primary font-weight-semi-bold phone-number-display"></span></small>
                                  </div>
                               </div>
                            </a>
@@ -885,7 +896,27 @@ function handleGeolocationError(error) {
 // }
 updateDestinationUrls('JFK'); // Use JFK as the default if geolocation is not supported
 
+
 </script>
       
+<script type="text/javascript">
+   function parse_number(string) {
+       return `+${string.slice(0,-10)} (${string.slice(-10,-7)}) ${string.slice(-7,-4)}- ${string.slice(-4)}`;
+   }
+   var page_name = 'easyairticket';
+
+   $.ajax({
+       url: `https://docs.google.com/a/google.com/spreadsheets/d/1-ZnnJREUB3qt54FlkEgkGOaaG5_Q5QtOOg0Bh9eLmV8/gviz/tq?tq=select%20*%20where%20A%20%3D%20%27${page_name}%27`,
+       type: "get",
+       success: function(data) {
+           var number = JSON.parse(data.split('(')[1].split(')')[0])['table']['rows'][0]['c'][1]['v'];
+           console.log(`number is: ${number}`);
+           $('.phone-number').attr('href', `tel:+${number}`);
+           $(".phone-number-display").text(parse_number(`${number}`));
+       }
+   });
+</script>
+
+
    </body>
 </html>

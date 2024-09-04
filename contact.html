@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
     <!-- CSS MyTravel Template -->
     <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
   </head>
   <body>
     <!-- ========== HEADER ========== -->
@@ -94,9 +96,13 @@
                 <li class="nav-item u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                   <a id="contactMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="contact.html" aria-haspopup="true" aria-expanded="false">Contact</a>
                 </li>
-                <li class="nav-item u-header__nav-item btn-bg-transparent" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                  <a id="callMenu" class="nav-link u-header__nav-link u-header__nav-link-border phone-number" href="tel:" aria-haspopup="true" aria-expanded="false">Call Us</a>
-                </li>
+                <li class="nav-item u-header__nav-item">
+                  <a href="tel:" class="btn btn-sm btn-light border transition-3d-hover phone-number" style="color: #297cbb;">
+                      <i class="fa fa-phone-alt mr-2"></i>
+                      <span class="d-none d-md-inline">Call Now for Best Offers</span>
+                      <span class="d-inline d-md-none">Call Now</span>
+                  </a>
+              </li>
               </ul>
             </div>
             <!-- End Navigation -->

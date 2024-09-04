@@ -48,6 +48,7 @@
       <link rel="stylesheet" href="assets/vendor/dzsparallaxer/dzsparallaxer.css">
       <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
       <!-- CSS MyTravel Template -->
       <link rel="stylesheet" href="assets/css/theme.css">
@@ -61,6 +62,30 @@
          .inner.show {
          margin: 0 1em;
          }
+
+
+         .u-header__navbar-nav .btn {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 992px) {
+    .u-header__navbar-nav .btn {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+         .u-header__navbar-nav .btn-light.phone-number {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-weight: 600;
+}
+
+.u-header__navbar-nav .btn-light.phone-number:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
       </style>
    </head>
    <body>
@@ -113,9 +138,13 @@
                         <li class="nav-item u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
                            <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border" href="contact.html" aria-haspopup="true" aria-expanded="false">Contact</a>
                         </li>
-                        <li class="nav-item  u-header__nav-item btn-bg-transparent" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                           <a id="homeMenu" class="nav-link u-header__nav-link u-header__nav-link-border phone-number" href="tel:" aria-haspopup="true" aria-expanded="false">Call Now for Best Offer</a>
-                        </li>
+                        <li class="nav-item u-header__nav-item">
+                           <a href="tel:" class="btn btn-sm btn-light border transition-3d-hover phone-number" style="color: #297cbb;">
+                               <i class="fa fa-phone-alt mr-2"></i>
+                               <span class="d-none d-md-inline">Call Now for Best Offers</span>
+                               <span class="d-inline d-md-none">Call Now</span>
+                           </a>
+                       </li>
                      </ul>
                   </div>
                   <!-- End Navigation -->
@@ -215,7 +244,7 @@
                                           <i class="flaticon-magnifying-glass mr-2"></i>Search
                                        </button>
                                        <a href="tel:" style="height: auto;" class="btn btn-outline-primary border-radius-2 font-weight-bold btn-md transition-3d-hover mt-2 phone-number">
-                                          <i class="flaticon-phone-call mr-2"></i>Call to compare prices
+                                          <i class="flaticon-phone-call mr-2"></i>Call To Compare Prices
                                        </a>
                                     </div>
                                  </div>
@@ -274,7 +303,7 @@
                                           <i class="flaticon-magnifying-glass mr-2"></i>Search
                                        </button>
                                        <a href="tel:" style="height: auto;" class="btn btn-outline-primary border-radius-2 font-weight-bold btn-md transition-3d-hover mt-2 phone-number">
-                                          <i class="flaticon-phone-call mr-2"></i>Call to compare prices
+                                          <i class="flaticon-phone-call mr-2"></i>Call To Compare Prices
                                        </a>
                                     </div>
                                    </div>
